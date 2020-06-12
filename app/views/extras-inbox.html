@@ -1,0 +1,154 @@
+    <ol class="breadcrumb">
+		<li><a href="#/">Dashboard</a></li>
+		<li>Extras</li>
+		<li class="active">Inbox</li>
+	</ol>
+	
+<div class="container-fluid" ng-controller="InboxController">
+<div class="row">
+	<div class="col-sm-3">
+		<a class="btn btn-lg btn-indigo btn-block mb-xl" href="#/compose-mail">Compose</a>
+		
+		<div class="list-group inbox-menu list-group-alternate">
+			<a href="#" class="list-group-item active"><i class="ti ti-email"></i>Inbox <span class="badge badge-primary">3</span></a>
+			<a href="#" class="list-group-item"><i class="ti ti-share"></i>Sent </a>
+			<a href="#" class="list-group-item"><i class="ti ti-file"></i>Drafts <span class="badge badge-orange">1</span></a>
+			<a href="#" class="list-group-item"><i class="ti ti-trash"></i>Trash</a>
+			<a href="#" class="list-group-item"><i class="ti ti-control-record circle-red"></i>Important</a>
+			<a href="#" class="list-group-item"><i class="ti ti-control-record circle-green"></i>Work</a>
+			<a href="#" class="list-group-item"><i class="ti ti-control-record circle-purple"></i>Personal</a>
+		</div>
+	</div><!-- col-sm-3 -->
+
+	<div class="col-sm-9">
+	
+		<div class="input-group mb-xl">
+	      <input type="text" class="form-control input-lg" placeholder="Search mail...">
+	      <span class="input-group-btn">
+	        <button class="btn btn-default btn-lg" type="button"><i class="fa fa-search"></i></button>
+	      </span>
+	    </div><!-- /input-group -->
+
+
+	    <div class="panel panel-inbox">
+				<div class="panel-body">
+					<div class="inbox-mail-heading">
+						<div class="clearfix">
+							<div class="pull-left">
+								<div class="btn-group">
+						            <a href="#" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown"><div class="checkbox-inline icheck"><input icheck type="checkbox" value=""></div><i class="caret"></i></a>
+						            <ul class="dropdown-menu">
+						                <li><a href="#">Select All</a></li>
+						                <li><a href="#">Unselect All</a></li>
+						                <li><a href="#">Another Action</a></li>
+						                <li class="divider"></li>
+						                <li><a href="#">Separated Link</a></li>
+						            </ul>
+						        </div>
+						        <div class="btn-group">
+						        	<a href="#" class="btn btn-lg btn-default"><i class="ti ti-reload"></i></a>
+		                            <a href="#" class="btn btn-lg btn-default"><i class="ti ti-archive"></i></a>
+		                            <a href="#" class="btn btn-lg btn-default"><i class="ti ti-folder"></i></a>
+		                            <a href="#" class="btn btn-lg btn-default"><i class="ti ti-trash"></i></a>
+		                        </div>
+						    </div>
+						    <div class="pull-right hidden-xs">
+						    	<strong>1</strong> of <strong>50</strong>
+						    	<div class="btn-group ml-sm">
+		                            <a href="#" class="btn btn-lg btn-default"><i class="ti ti-angle-left"></i></a>
+		                            <a href="#" class="btn btn-lg btn-default"><i class="ti ti-angle-right"></i></a>
+		                        </div>
+						    </div>
+						</div>
+					</div>
+					<table class="table table-hover table-inbox table-vam">
+						<tbody>
+							<tr ng-click="openMail()" class="unread">
+								<td class="inbox-msg-check" width="5%"><div class="checkbox-inline icheck"><input icheck type="checkbox" value=""></div> </td>
+								<td class="inbox-msg-from hidden-xs hidden-sm" width="20%"><div>Terrell Tilson</div></td>
+								<td class="inbox-msg-snip"><span class="label label-primary" width="58%">Work</span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</td>
+								<td class="inbox-msg-attach"><i class="ti ti-clip" width="5%"></i> </td>
+								<td class="inbox-msg-time" width="12%">13:42</td>
+							</tr>
+							<tr ng-click="openMail()" class="unread">
+								<td class="inbox-msg-check"><div class="checkbox-inline icheck"><input icheck type="checkbox" value=""></div> </td>
+								<td class="inbox-msg-from hidden-xs hidden-sm"><div>Tyler Charlebois</div></td>
+								<td class="inbox-msg-snip"><span class="label label-info" width="58%">Family</span>Accusantium doloremque laudantium totam rem aperiam</td>
+								<td class="inbox-msg-attach"></td>
+								<td class="inbox-msg-time">1:31</td>
+							</tr>
+							<tr>
+								<td class="inbox-msg-check"><div class="checkbox-inline icheck"><input icheck type="checkbox" value=""></div> </td>
+								<td class="inbox-msg-from hidden-xs hidden-sm"><div>Carrol Granados</div></td>
+								<td class="inbox-msg-snip">Eaque ipsa quae ab illo inventore veritatis et quasi</td>
+								<td class="inbox-msg-attach"><i class="ti ti-clip"></i> </td>
+								<td class="inbox-msg-time">9/03/14</td>
+							</tr>
+							<tr>
+								<td class="inbox-msg-check"><div class="checkbox-inline icheck"><input icheck type="checkbox" value=""></div> </td>
+								<td class="inbox-msg-from hidden-xs hidden-sm"><div>Sang Roles</div></td>
+								<td class="inbox-msg-snip">Voluptas sit aspernatur aut odit aut fugit sed quia consequuntur</td>
+								<td class="inbox-msg-attach"><i class="ti ti-clip"></i> </td>
+								<td class="inbox-msg-time">9/03/14</td>
+							</tr>
+							<tr>
+								<td class="inbox-msg-check"><div class="checkbox-inline icheck"><input icheck type="checkbox" value=""></div> </td>
+								<td class="inbox-msg-from hidden-xs hidden-sm"><div>Avery Hooper</div></td>
+								<td class="inbox-msg-snip">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</td>
+								<td class="inbox-msg-attach"></td>
+								<td class="inbox-msg-time">8/03/14</td>
+							</tr>
+							<tr ng-click="openMail()" class="unread">
+								<td class="inbox-msg-check"><div class="checkbox-inline icheck"><input icheck type="checkbox" value=""></div> </td>
+								<td class="inbox-msg-from hidden-xs hidden-sm"><div>Alex Murphy</div></td>
+								<td class="inbox-msg-snip"><span class="label label-primary" width="58%">Work</span>Consectetur adipisci velit sed quia non numquam eius</td>
+								<td class="inbox-msg-attach"></td>
+								<td class="inbox-msg-time">8/03/14</td>
+							</tr>
+							<tr ng-click="openMail()" class="unread">
+								<td class="inbox-msg-check"><div class="checkbox-inline icheck"><input icheck type="checkbox" value=""></div> </td>
+								<td class="inbox-msg-from hidden-xs hidden-sm"><div>Bernie Maldonado</div></td>
+								<td class="inbox-msg-snip">Quis autem vel eum iure reprehenderit qui in ea voluptate</td>
+								<td class="inbox-msg-attach"><i class="ti ti-clip"></i> </td>
+								<td class="inbox-msg-time">8/03/14</td>
+							</tr>
+							<tr ng-click="openMail()">
+								<td class="inbox-msg-check"><div class="checkbox-inline icheck"><input icheck type="checkbox" value=""></div> </td>
+								<td class="inbox-msg-from hidden-xs hidden-sm"><div>Dominique Slay</div></td>
+								<td class="inbox-msg-snip">Vel illum qui dolorem eum fugiat quo voluptas nulla pariatur</td>
+								<td class="inbox-msg-attach"></td>
+								<td class="inbox-msg-time">7/03/14</td>
+							</tr>
+							<tr ng-click="openMail()">
+								<td class="inbox-msg-check"><div class="checkbox-inline icheck"><input icheck type="checkbox" value=""></div> </td>
+								<td class="inbox-msg-from hidden-xs hidden-sm"><div>Jc Doney</div></td>
+								<td class="inbox-msg-snip">Ullam corporis suscipit laboriosam nisi ut</td>
+								<td class="inbox-msg-attach"><i class="ti ti-clip"></i> </td>
+								<td class="inbox-msg-time">7/03/14</td>
+							</tr>
+							<tr ng-click="openMail()">
+								<td class="inbox-msg-check"><div class="checkbox-inline icheck"><input icheck type="checkbox" value=""></div> </td>
+								<td class="inbox-msg-from hidden-xs hidden-sm"><div>Brock Wulff</div></td>
+								<td class="inbox-msg-snip"><span class="label label-danger" width="58%">Important</span>Numquam eius modi tempora incidunt ut labore</td>
+								<td class="inbox-msg-attach"></td>
+								<td class="inbox-msg-time">7/03/14</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="inbox-mail-footer">
+						<div class="clearfix">
+						    <div class="pull-right">
+						    	<strong>1</strong> of <strong>50</strong>
+						    	<div class="btn-group ml-sm">
+		                            <a href="#" class="btn btn-lg btn-default"><i class="ti ti-angle-left"></i></a>
+		                            <a href="#" class="btn btn-lg btn-default"><i class="ti ti-angle-right"></i></a>
+		                        </div>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	</div><!-- col-sm-8 -->
+</div>
+</div> <!-- container-fluid -->

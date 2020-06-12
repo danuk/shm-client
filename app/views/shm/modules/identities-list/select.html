@@ -1,0 +1,5 @@
+<select class="form-control" ng-model="data" ng-disabled="!items" required>
+    <option ng-value="item.id" ng-repeat="item in items">
+    {{ item.name }}
+    </option>
+</select>

@@ -1,0 +1,58 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{ data.title }}</h4>
+</div>
+<div class="modal-body">
+    <form action="" class="form-horizontal row-border">
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">{{ data.label_from }}</label>
+            <div class="col-sm-8">
+                <select class="form-control" ng-model="data.from">
+                    <option ng-repeat="item in data.list_from" ng-value="item">
+                        {{ item[ data.list_caption_field ] }}
+                    </option>
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <div>
+                    <a ng-click="add()" class="btn btn-default" ng-disabled="!data.from">
+                        <i class="ti ti-plus"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">{{ data.label_to }}</label>
+            <div class="col-sm-8">
+                <select id="data_to" class="form-control" ng-model="data.to" multiple style="height: 160px;">
+                    <option ng-repeat="(i,item) in data.list_to" ng-value="i">
+                        {{ item[ data.list_caption_field ] }}
+                    </option>
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <div>
+                    <a ng-click="move('up')" class="btn btn-default" ng-disabled='btn_up_disabled'>
+                        <i class="ti ti-arrow-up"></i>
+                    </a>
+                </div>
+                <div>
+                    <a ng-click="move('down')" class="btn btn-default" ng-disabled='btn_down_disabled'>
+                        <i class="ti ti-arrow-down"></i>
+                    </a>
+                </div>
+                <div>
+                    <a ng-click="remove()" class="btn btn-default" ng-disabled='btn_remove_disabled' >
+                        <i class="ti ti-na"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="save()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

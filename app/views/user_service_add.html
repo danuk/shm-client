@@ -1,0 +1,45 @@
+<form name="userForm" class="form-horizontal row-border">
+    <div class="modal-header">
+        <h4 class="modal-title">{{ title }}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Пользователь</label>
+            <div class="col-sm-8">
+                <users-list id="data.user_id"></users-list>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Услуга</label>
+            <div class="col-sm-8">
+                <services-list data="service" required></services-list>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Стоимость</label>
+            <div class="col-sm-3">
+                <input type="number" step="0.01" ng-model="data.cost" class="form-control" required>
+            </div>
+            <label class="col-sm-2 control-label">Период</label>
+            <div class="col-sm-3">
+                <input type="number" step="{{ data.months }}" ng-model="data.months" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Settings</label>
+            <div class="col-sm-8">
+                <input type="text" value="{{ data.settings }}" readonly="readonly" class="form-control">
+            </div>
+            <div class="col-sm-2">
+                <json-editor data="data.settings"></json-editor>
+            </div>
+        </div>
+
+    </div> <!-- modal-body -->
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="save()">Create</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</form>

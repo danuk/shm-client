@@ -1,0 +1,45 @@
+// Extrabar
+// --------------------------------------------------
+
+body.extrabar-show {
+	overflow: hidden;
+	// background: #000;
+	background: url("../img/md_bg1.jpg") center 50%;
+	#wrapper {.scale(0.9);}
+	.extrabar {
+		transform: translateY(0);
+		transition: transform 0.3s 0s;
+	}
+	.extrabar-underlay {display: block;}
+}
+
+.extrabar {
+	padding: 20px;
+	position: fixed;
+	z-index: 9999;
+	top: 0px;
+	right: 0;
+	left: 0;
+	height: 100%;
+	overflow-y: auto;
+	background-color: rgba(255,255,255,1);
+	transform: translateY(-100%);
+	transition: transform 0.3s 0s;
+	height: auto;
+	.backface-visibility(~"hidden");
+
+	@media (min-width: 992px) {
+		.info-tile {margin-bottom: auto;}
+	}
+}
+
+.extrabar-underlay {
+	position: fixed;
+	top: 0;
+	bottom:0;
+	left: 0;
+	right: 0;
+	z-index: 9998;
+	background: rgba(0,0,0,0.3);
+	display: none;
+}

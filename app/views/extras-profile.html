@@ -1,0 +1,637 @@
+    <ol class="breadcrumb">
+		<li><a href="#/">Dashboard</a></li>
+		<li>Extras</li>
+		<li class="active">User Profile</li>
+	</ol>
+
+<div class="container-fluid">
+<div data-widget-group="group1" ng-init="selectedTab='0'">
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="panel panel-profile">
+			  <div class="panel-body">
+			    <img masked-image src="assets/demo/avatar/avatar_06.png" alt="..." class="img-circle">
+			    <div class="name">Robin Horton</div>
+			    <div class="info">Graphic Designer</div>
+			    <ul class="list-inline text-center">
+			    	<li><a href="#" class="profile-facebook-icon"><i class="ti ti-facebook"></i></a></li>
+			    	<li><a href="#" class="profile-twitter-icon"><i class="ti ti-twitter"></i></a></li>
+			    	<li><a href="#" class="profile-dribbble-icon"><i class="ti ti-dribbble"></i></a></li>
+			    </ul>
+			  </div>
+			</div><!-- panel -->
+			<div class="list-group list-group-alternate mb-n nav nav-tabs">
+				<a href="" ng-click="selectedTab='0'" ng-class="{active: selectedTab=='0'}" class="list-group-item active"><i class="ti ti-user"></i> About <span class="badge badge-primary">80%</span></a>
+				<a href="" ng-click="selectedTab='1'" ng-class="{active: selectedTab=='1'}" class="list-group-item"><i class="ti ti-time"></i> Timeline</a>
+				<a href="" ng-click="selectedTab='2'" ng-class="{active: selectedTab=='2'}" class="list-group-item"><i class="ti ti-view-list-alt"></i> Projects</a>
+				<a href="" ng-click="selectedTab='3'" ng-class="{active: selectedTab=='3'}" class="list-group-item"><i class="ti ti-view-grid"></i> Photos</a>
+				<a href="" ng-click="selectedTab='4'" ng-class="{active: selectedTab=='4'}" class="list-group-item"><i class="ti ti-pencil"></i> Edit</a>
+			</div>
+		</div><!-- col-sm-3 -->
+		<div class="col-sm-9">
+			<div class="tab-content">
+				<div class="tab-pane" ng-class="{active: selectedTab=='2'}">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h2>Projects</h2>
+						</div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<table class="table m-n">
+									<thead>
+										  <tr>
+										    <th>#</th>
+										    <th>Project Title</th>
+										    <th>Description</th>
+										    <th>Progress</th>
+										  </tr>
+									</thead>
+									<tbody>
+										  <tr>
+										    <th scope="row">1.</th>
+										    <td><strong>Outline</strong></td>
+										    <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</td>
+										    <td class="vam">
+												<div class="progress m-n">
+				                                  <div class="progress-bar progress-bar-success" style="width: 20%"></div>
+				                                </div>
+				                            </td>
+										  </tr>
+										  <tr>
+										    <th scope="row">2.</th>
+										    <td><strong>Phoenix</strong></td>
+										    <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</td>
+										    <td class="vam">
+												<div class="progress m-n">
+				                                  <div class="progress-bar progress-bar-success" style="width: 50%"></div>
+				                                </div>
+				                            </td>
+										  </tr>
+										  <tr>
+										    <th scope="row">3.</th>
+										    <td><strong>Arvin</strong></td>
+										    <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</td>
+										    <td class="vam">
+												<div class="progress m-n">
+				                                  <div class="progress-bar progress-bar-success" style="width: 10%"></div>
+				                                </div>
+				                            </td>
+										  </tr>
+										  <tr>
+										    <th scope="row">4.</th>
+										    <td><strong>Flip3</strong></td>
+										    <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</td>
+										    <td class="vam">
+												<div class="progress m-n">
+				                                  <div class="progress-bar progress-bar-success" style="width: 75%"></div>
+				                                </div>
+				                            </td>
+										  </tr>
+										  <tr>
+										    <th scope="row">5.</th>
+										    <td><strong>Appboom</strong></td>
+										    <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</td>
+										    <td class="vam">
+												<div class="progress m-n">
+				                                  <div class="progress-bar progress-bar-success" style="width: 25%"></div>
+				                                </div>
+				                            </td>
+										  </tr>
+										  <tr>
+										    <th scope="row">6.</th>
+										    <td><strong>Xavant</strong></td>
+										    <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</td>
+										    <td class="vam">
+												<div class="progress m-n">
+				                                  <div class="progress-bar progress-bar-success" style="width: 15%"></div>
+				                                </div>
+				                            </td>
+										  </tr>
+									</tbody>
+								</table>
+							</div><!-- /.table-responsive -->
+						</div> <!-- /.panel-body -->
+					</div>
+				</div> <!-- #tab-projects -->
+
+				<div class="tab-pane" ng-class="{active: selectedTab=='0'}">
+					<div class="panel panel-default">
+					    <div class="panel-heading">
+					    	<h2>About</h2>
+					    </div>
+						<div class="panel-body">
+					      	<div class="about-area">
+						      	<h4>Bio</h4>
+						      	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores in eveniet sapiente error fuga tenetur ex ea dignissimos voluptas ab molestiae eos totam quo dolorem maxime illo neque quia itaque.</p> 
+						      	<p>Asperiores in eveniet sapiente error fuga tenetur ex ea dignissimos voluptas ab molestiae eos totam quo dolorem maxime illo neque quia itaque.</p>
+							</div>
+							<div class="about-area">
+						      	<h4>Basic Information</h4>
+								    <div class="table-responsive">
+								      <table class="table">
+								        <tbody>
+								          <tr>
+								            <th>Web</th>
+								            <td><a href="#">www.johndoe.com</a></td>
+								          </tr>
+								          <tr>
+								            <th>Email</th>
+								            <td><a href="#">doe@lime.com</a></td>
+								          </tr>
+								          <tr>
+								            <th>Phone</th>
+								            <td>+61 3 8376 6284</td>
+								          </tr>
+								          <tr>
+								            <th>Position</th>
+								            <td>Designer</td>
+								          </tr>
+								          <tr>
+								            <th>Status</th>
+								            <td>Member</td>
+								          </tr>
+								          <tr>
+								            <th>Social</th>
+								            <td>
+								            	<ul class="list-inline m-n">
+								            		<li><a href="#"><i class="ti ti-pinterest"></i></a></li>
+								            		<li><a href="#"><i class="ti ti-twitter"></i></a></li>
+								            		<li><a href="#"><i class="ti ti-google"></i></a></li>
+								            		<li><a href="#"><i class="ti ti-linkedin"></i></a></li>
+								            		<li><a href="#"><i class="ti ti-dribbble"></i></a></li>
+								            		<li><a href="#"><i class="ti ti-facebook"></i></a></li>
+								            	</ul>
+								            </td>
+								          </tr>
+								        </tbody>
+								      </table>
+								    </div>
+							</div>
+							<div class="about-area">
+						      	<h4>Personal Information</h4>
+								    <div class="table-responsive">
+								      <table class="table about-table">
+								        <tbody>
+								          <tr>
+								            <th>Full Name</th>
+								            <td>Jonathan Davison Smith</td>
+								          </tr>
+								          <tr>
+								            <th>Birth Date</th>
+								            <td>1 January</td>
+								          </tr>
+								          <tr>
+								            <th>Birth Year</th>
+								            <td>1980</td>
+								          </tr>
+								          <tr>
+								            <th>Gender</th>
+								            <td>Male</td>
+								          </tr>
+								          <tr>
+								            <th>Languages</th>
+								            <td>English</td>
+								          </tr>
+								          <tr>
+								            <th>City</th>
+								            <td>Canbera</td>
+								          </tr>
+								          <tr>
+								            <th>Country</th>
+								            <td>Australia</td>
+								          </tr>
+								        </tbody>
+								      </table>
+								    </div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane" ng-class="{active: selectedTab=='1'}">
+					<div class="panel">
+						<div class="panel-heading">
+							<h2>Timeline</h2>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12">
+									<ul class="timeline">
+										<li class="timeline-primary">
+											<div class="timeline-icon"><i class="ti ti-pencil"></i></div>
+											<div class="timeline-body">
+												<div class="timeline-header">
+													<span class="author">Posted by <a href="#">David Tennant</a></span>
+													<span class="date">Monday, November 21, 2013</span>
+												</div>
+												<div class="timeline-content">
+													<h4>Consectetur Adipisicing Elit</h4>
+													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, officiis, molestiae, deserunt asperiores architecto ut vel repudiandae dolore inventore nesciunt necessitatibus doloribus ratione facere consectetur suscipit!</p>
+												</div>
+											</div>
+										</li>
+										<li class="timeline-info">
+											<div class="timeline-icon"><i class="ti ti-heart"></i></div>
+											<div class="timeline-body">
+												<div class="timeline-header">
+													<span class="author">Posted by <a href="#">David Tennant</a></span>
+													<span class="date">Monday, November 21, 2013</span>
+												</div>
+												<div class="timeline-content">
+													<h4>Consectetur Adipisicing Elit</h4>
+													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, officiis, molestiae, deserunt asperiores architecto ut vel repudiandae dolore inventore nesciunt necessitatibus doloribus ratione facere consectetur suscipit!</p>
+												</div>
+											</div>
+										</li>
+										<li class="timeline-warning">
+											<div class="timeline-icon"><i class="ti ti-camera"></i></div>
+											<div class="timeline-body">
+												<div class="timeline-header">
+													<span class="author">Posted by <a href="#">David Tennant</a></span>
+													<span class="date">Monday, November 21, 2013</span>
+												</div>
+												<div class="timeline-content">
+													<h4>Consectetur Adipisicing Elit</h4>
+													<ul class="list-inline">
+														<li><img masked-image src="assets/demo/stockphoto/blog_06.jpg" alt="" class="pull-left img-thumbnail img-responsive clearfix" width="200" height="133"></li>
+														<li><img masked-image src="assets/demo/stockphoto/blog_06.jpg" alt="" class="pull-left img-thumbnail img-responsive clearfix" width="200" height="133"></li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class="timeline-danger">
+											<div class="timeline-icon"><i class="ti ti-home"></i></div>
+											<div class="timeline-body">
+												<div class="timeline-header">
+													<span class="author">Posted by <a href="#">David Tennant</a></span>
+													<span class="date">Monday, November 21, 2013</span>
+												</div>
+												<div class="timeline-content">
+													<h4>Consectetur Adipisicing Elit</h4>
+													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, officiis, molestiae, deserunt asperiores architecto ut vel repudiandae dolore inventore nesciunt necessitatibus doloribus ratione facere consectetur suscipit!</p>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane" ng-class="{active: selectedTab=='3'}">
+					<div class="panel">
+						<div class="panel-heading">
+							<h2>Photos</h2>
+						</div>
+						<div class="panel-body profile-photos">
+							<div class="row">
+								<div class="col-md-3">
+									<img load-as-modal src="assets/demo/stockphoto/blog_01.jpg" alt="" class="img-thumbnail img-responsive mb-xl">
+								</div>
+								<div class="col-md-3">
+									<img load-as-modal src="assets/demo/stockphoto/blog_02.jpg" alt="" class="img-thumbnail img-responsive mb-xl">
+								</div>
+								<div class="col-md-3">
+									<img load-as-modal src="assets/demo/stockphoto/blog_03.jpg" alt="" class="img-thumbnail img-responsive mb-xl">
+								</div>
+								<div class="col-md-3">
+									<img load-as-modal src="assets/demo/stockphoto/blog_04.jpg" alt="" class="img-thumbnail img-responsive mb-xl">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<img load-as-modal src="assets/demo/stockphoto/blog_01.jpg" alt="" class="img-thumbnail img-responsive mb-xl">
+								</div>
+								<div class="col-md-3">
+									<img load-as-modal src="assets/demo/stockphoto/blog_02.jpg" alt="" class="img-thumbnail img-responsive mb-xl">
+								</div>
+								<div class="col-md-3">
+									<img load-as-modal src="assets/demo/stockphoto/blog_03.jpg" alt="" class="img-thumbnail img-responsive mb-xl">
+								</div>
+								<div class="col-md-3">
+									<img load-as-modal src="assets/demo/stockphoto/blog_04.jpg" alt="" class="img-thumbnail img-responsive mb-xl">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane" ng-class="{active: selectedTab=='4'}">
+					<div class="panel">
+						<div class="panel-heading">
+							<h2>Edit</h2>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12">
+									<form class="form-horizontal tabular-form">
+										<div class="form-group">
+											<label for="form-name" class="col-sm-2 control-label">Name</label>
+											<div class="col-sm-8 tabular-border">
+												<input type="text" class="form-control" id="form-name" placeholder="Full Name">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="form-website" class="col-sm-2 control-label">Website</label>
+											<div class="col-sm-8 tabular-border">
+												<input type="text" class="form-control" id="form-website" placeholder="http://">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="radio" class="col-sm-2 control-label">Gender</label>
+											<div class="col-sm-8 tabular-border">
+												<div class="radio block icheck"><label><input icheck type="radio" name="gender"> Male</label></div>
+												<div class="radio block icheck"><label><input icheck type="radio" name="gender"> Female</label></div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="form-password" class="col-sm-2 control-label">Password</label>
+											<div class="col-sm-8 tabular-border">
+												<input type="password" class="form-control" id="form-password" placeholder="Password">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="form-confirmpass" class="col-sm-2 control-label">Confrim Password</label>
+											<div class="col-sm-8 tabular-border">
+												<input type="password" class="form-control" id="form-confirmpass" placeholder="Password">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="selector1" class="col-sm-2 control-label">Country</label>
+											<div class="col-sm-8 tabular-border"><select name="selector1" id="selector1" class="form-control">
+												<option value="Afghanistan">Afghanistan</option>
+												<option value="Åland_Islands">Åland Islands</option>
+												<option value="Albania">Albania</option>
+												<option value="Algeria">Algeria</option>
+												<option value="American_Samoa">American Samoa</option>
+												<option value="Andorra">Andorra</option>
+												<option value="Angola">Angola</option>
+												<option value="Anguilla">Anguilla</option>
+												<option value="Antarctica">Antarctica</option>
+												<option value="Antigua_And_Barbuda">Antigua and Barbuda</option>
+												<option value="Argentina">Argentina</option>
+												<option value="Armenia">Armenia</option>
+												<option value="Aruba">Aruba</option>
+												<option value="Australia">Australia</option>
+												<option value="Austria">Austria</option>
+												<option value="Azerbaijan">Azerbaijan</option>
+												<option value="Bahamas">Bahamas</option>
+												<option value="Bahrain">Bahrain</option>
+												<option value="Bangladesh">Bangladesh</option>
+												<option value="Barbados">Barbados</option>
+												<option value="Belarus">Belarus</option>
+												<option value="Belgium">Belgium</option>
+												<option value="Belize">Belize</option>
+												<option value="Benin">Benin</option>
+												<option value="Bermuda">Bermuda</option>
+												<option value="Bhutan">Bhutan</option>
+												<option value="Bolivia">Bolivia</option>
+												<option value="Bosnia_And_Herzegovina">Bosnia and Herzegovina</option>
+												<option value="Botswana">Botswana</option>
+												<option value="Bouvet_Island">Bouvet Island</option>
+												<option value="Brazil">Brazil</option>
+												<option value="British_Indian_Ocean_Territory">British Indian Ocean Territory</option>
+												<option value="Brunei_Darussalam">Brunei Darussalam</option>
+												<option value="Bulgaria">Bulgaria</option>
+												<option value="Burkina_Faso">Burkina Faso</option>
+												<option value="Burundi">Burundi</option>
+												<option value="Cambodia">Cambodia</option>
+												<option value="Cameroon">Cameroon</option>
+												<option value="Canada">Canada</option>
+												<option value="Cape_Verde">Cape Verde</option>
+												<option value="Cayman_Islands">Cayman Islands</option>
+												<option value="Central_African_Republic">Central African Republic</option>
+												<option value="Chad">Chad</option>
+												<option value="Chile">Chile</option>
+												<option value="China">China</option>
+												<option value="Christmas_Island">Christmas Island</option>
+												<option value="Cocos_(Keeling)_Islands">Cocos (Keeling) Islands</option>
+												<option value="Colombia">Colombia</option>
+												<option value="Comoros">Comoros</option>
+												<option value="Congo">Congo</option>
+												<option value="Congo,_The_Democratic_Republic_Of_The">Congo, The Democratic Republic of The</option>
+												<option value="Cook_Islands">Cook Islands</option>
+												<option value="Costa_Rica">Costa Rica</option>
+												<option value="Cote_D'ivoire">Cote D'ivoire</option>
+												<option value="Croatia">Croatia</option>
+												<option value="Cuba">Cuba</option>
+												<option value="Cyprus">Cyprus</option>
+												<option value="Czech_Republic">Czech Republic</option>
+												<option value="Denmark">Denmark</option>
+												<option value="Djibouti">Djibouti</option>
+												<option value="Dominica">Dominica</option>
+												<option value="Dominican_Republic">Dominican Republic</option>
+												<option value="Ecuador">Ecuador</option>
+												<option value="Egypt">Egypt</option>
+												<option value="El_Salvador">El Salvador</option>
+												<option value="Equatorial_Guinea">Equatorial Guinea</option>
+												<option value="Eritrea">Eritrea</option>
+												<option value="Estonia">Estonia</option>
+												<option value="Ethiopia">Ethiopia</option>
+												<option value="Falkland_Islands_(Malvinas)">Falkland Islands (Malvinas)</option>
+												<option value="Faroe_Islands">Faroe Islands</option>
+												<option value="Fiji">Fiji</option>
+												<option value="Finland">Finland</option>
+												<option value="France">France</option>
+												<option value="French_Guiana">French Guiana</option>
+												<option value="French_Polynesia">French Polynesia</option>
+												<option value="French_Southern_Territories">French Southern Territories</option>
+												<option value="Gabon">Gabon</option>
+												<option value="Gambia">Gambia</option>
+												<option value="Georgia">Georgia</option>
+												<option value="Germany">Germany</option>
+												<option value="Ghana">Ghana</option>
+												<option value="Gibraltar">Gibraltar</option>
+												<option value="Greece">Greece</option>
+												<option value="Greenland">Greenland</option>
+												<option value="Grenada">Grenada</option>
+												<option value="Guadeloupe">Guadeloupe</option>
+												<option value="Guam">Guam</option>
+												<option value="Guatemala">Guatemala</option>
+												<option value="Guernsey">Guernsey</option>
+												<option value="Guinea">Guinea</option>
+												<option value="Guinea-bissau">Guinea-bissau</option>
+												<option value="Guyana">Guyana</option>
+												<option value="Haiti">Haiti</option>
+												<option value="Heard_Island_And_Mcdonald_Islands">Heard Island and Mcdonald Islands</option>
+												<option value="Holy_See_(Vatican_City_State)">Holy See (Vatican City State)</option>
+												<option value="Honduras">Honduras</option>
+												<option value="Hong_Kong">Hong Kong</option>
+												<option value="Hungary">Hungary</option>
+												<option value="Iceland">Iceland</option>
+												<option value="India">India</option>
+												<option value="Indonesia">Indonesia</option>
+												<option value="Iran,_Islamic_Republic_Of">Iran, Islamic Republic of</option>
+												<option value="Iraq">Iraq</option>
+												<option value="Ireland">Ireland</option>
+												<option value="Isle_Of_Man">Isle of Man</option>
+												<option value="Israel">Israel</option>
+												<option value="Italy">Italy</option>
+												<option value="Jamaica">Jamaica</option>
+												<option value="Japan">Japan</option>
+												<option value="Jersey">Jersey</option>
+												<option value="Jordan">Jordan</option>
+												<option value="Kazakhstan">Kazakhstan</option>
+												<option value="Kenya">Kenya</option>
+												<option value="Kiribati">Kiribati</option>
+												<option value="Korea,_Democratic_People's_Republic_Of">Korea, Democratic People's Republic of</option>
+												<option value="Korea,_Republic_Of">Korea, Republic of</option>
+												<option value="Kuwait">Kuwait</option>
+												<option value="Kyrgyzstan">Kyrgyzstan</option>
+												<option value="Lao_People's_Democratic_Republic">Lao People's Democratic Republic</option>
+												<option value="Latvia">Latvia</option>
+												<option value="Lebanon">Lebanon</option>
+												<option value="Lesotho">Lesotho</option>
+												<option value="Liberia">Liberia</option>
+												<option value="Libyan_Arab_Jamahiriya">Libyan Arab Jamahiriya</option>
+												<option value="Liechtenstein">Liechtenstein</option>
+												<option value="Lithuania">Lithuania</option>
+												<option value="Luxembourg">Luxembourg</option>
+												<option value="Macao">Macao</option>
+												<option value="Macedonia,_The_Former_Yugoslav_Republic_Of">Macedonia, The Former Yugoslav Republic of</option>
+												<option value="Madagascar">Madagascar</option>
+												<option value="Malawi">Malawi</option>
+												<option value="Malaysia">Malaysia</option>
+												<option value="Maldives">Maldives</option>
+												<option value="Mali">Mali</option>
+												<option value="Malta">Malta</option>
+												<option value="Marshall_Islands">Marshall Islands</option>
+												<option value="Martinique">Martinique</option>
+												<option value="Mauritania">Mauritania</option>
+												<option value="Mauritius">Mauritius</option>
+												<option value="Mayotte">Mayotte</option>
+												<option value="Mexico">Mexico</option>
+												<option value="Micronesia,_Federated_States_Of">Micronesia, Federated States of</option>
+												<option value="Moldova,_Republic_Of">Moldova, Republic of</option>
+												<option value="Monaco">Monaco</option>
+												<option value="Mongolia">Mongolia</option>
+												<option value="Montenegro">Montenegro</option>
+												<option value="Montserrat">Montserrat</option>
+												<option value="Morocco">Morocco</option>
+												<option value="Mozambique">Mozambique</option>
+												<option value="Myanmar">Myanmar</option>
+												<option value="Namibia">Namibia</option>
+												<option value="Nauru">Nauru</option>
+												<option value="Nepal">Nepal</option>
+												<option value="Netherlands">Netherlands</option>
+												<option value="Netherlands_Antilles">Netherlands Antilles</option>
+												<option value="New_Caledonia">New Caledonia</option>
+												<option value="New_Zealand">New Zealand</option>
+												<option value="Nicaragua">Nicaragua</option>
+												<option value="Niger">Niger</option>
+												<option value="Nigeria">Nigeria</option>
+												<option value="Niue">Niue</option>
+												<option value="Norfolk_Island">Norfolk Island</option>
+												<option value="Northern_Mariana_Islands">Northern Mariana Islands</option>
+												<option value="Norway">Norway</option>
+												<option value="Oman">Oman</option>
+												<option value="Pakistan">Pakistan</option>
+												<option value="Palau">Palau</option>
+												<option value="Palestinian_Territory,_Occupied">Palestinian Territory, Occupied</option>
+												<option value="Panama">Panama</option>
+												<option value="Papua_New_Guinea">Papua New Guinea</option>
+												<option value="Paraguay">Paraguay</option>
+												<option value="Peru">Peru</option>
+												<option value="Philippines">Philippines</option>
+												<option value="Pitcairn">Pitcairn</option>
+												<option value="Poland">Poland</option>
+												<option value="Portugal">Portugal</option>
+												<option value="Puerto_Rico">Puerto Rico</option>
+												<option value="Qatar">Qatar</option>
+												<option value="Reunion">Reunion</option>
+												<option value="Romania">Romania</option>
+												<option value="Russian_Federation">Russian Federation</option>
+												<option value="Rwanda">Rwanda</option>
+												<option value="Saint_Helena">Saint Helena</option>
+												<option value="Saint_Kitts_And_Nevis">Saint Kitts and Nevis</option>
+												<option value="Saint_Lucia">Saint Lucia</option>
+												<option value="Saint_Pierre_And_Miquelon">Saint Pierre and Miquelon</option>
+												<option value="Saint_Vincent_And_The_Grenadines">Saint Vincent and The Grenadines</option>
+												<option value="Samoa">Samoa</option>
+												<option value="San_Marino">San Marino</option>
+												<option value="Sao_Tome_And_Principe">Sao Tome and Principe</option>
+												<option value="Saudi_Arabia">Saudi Arabia</option>
+												<option value="Senegal">Senegal</option>
+												<option value="Serbia">Serbia</option>
+												<option value="Seychelles">Seychelles</option>
+												<option value="Sierra_Leone">Sierra Leone</option>
+												<option value="Singapore">Singapore</option>
+												<option value="Slovakia">Slovakia</option>
+												<option value="Slovenia">Slovenia</option>
+												<option value="Solomon_Islands">Solomon Islands</option>
+												<option value="Somalia">Somalia</option>
+												<option value="South_Africa">South Africa</option>
+												<option value="South_Georgia_And_The_South_Sandwich_Islands">South Georgia and The South Sandwich Islands</option>
+												<option value="Spain">Spain</option>
+												<option value="Sri_Lanka">Sri Lanka</option>
+												<option value="Sudan">Sudan</option>
+												<option value="Suriname">Suriname</option>
+												<option value="Svalbard_And_Jan_Mayen">Svalbard and Jan Mayen</option>
+												<option value="Swaziland">Swaziland</option>
+												<option value="Sweden">Sweden</option>
+												<option value="Switzerland">Switzerland</option>
+												<option value="Syrian_Arab_Republic">Syrian Arab Republic</option>
+												<option value="Taiwan,_Province_Of_China">Taiwan, Province of China</option>
+												<option value="Tajikistan">Tajikistan</option>
+												<option value="Tanzania,_United_Republic_Of">Tanzania, United Republic of</option>
+												<option value="Thailand">Thailand</option>
+												<option value="Timor-leste">Timor-leste</option>
+												<option value="Togo">Togo</option>
+												<option value="Tokelau">Tokelau</option>
+												<option value="Tonga">Tonga</option>
+												<option value="Trinidad_And_Tobago">Trinidad and Tobago</option>
+												<option value="Tunisia">Tunisia</option>
+												<option value="Turkey">Turkey</option>
+												<option value="Turkmenistan">Turkmenistan</option>
+												<option value="Turks_And_Caicos_Islands">Turks and Caicos Islands</option>
+												<option value="Tuvalu">Tuvalu</option>
+												<option value="Uganda">Uganda</option>
+												<option value="Ukraine">Ukraine</option>
+												<option value="United_Arab_Emirates">United Arab Emirates</option>
+												<option value="United_Kingdom">United Kingdom</option>
+
+												<option value="United_States" selected="selected">United States</option>
+												<option value="United_States_Minor_Outlying_Islands">United States Minor Outlying Islands</option>
+												<option value="Uruguay">Uruguay</option>
+												<option value="Uzbekistan">Uzbekistan</option>
+												<option value="Vanuatu">Vanuatu</option>
+												<option value="Venezuela">Venezuela</option>
+												<option value="Viet_Nam">Viet Nam</option>
+												<option value="Virgin_Islands,_British">Virgin Islands, British</option>
+												<option value="Virgin_Islands,_U.S.">Virgin Islands, U.S.</option>
+												<option value="Wallis_And_Futuna">Wallis and Futuna</option>
+												<option value="Western_Sahara">Western Sahara</option>
+												<option value="Yemen">Yemen</option>
+												<option value="Zambia">Zambia</option>
+												<option value="Zimbabwe">Zimbabwe</option>
+											</select></div>
+										</div>
+										
+										<div class="form-group">
+											<label class="col-sm-2 control-label">Bio</label>
+											<div class="col-sm-8">
+												<textarea class="form-control fullscreen"></textarea>
+											</div>
+										</div>
+										
+									</form>	
+								</div>
+							</div>
+						</div>
+						<div class="panel-footer">
+							<div class="row">
+								<div class="col-sm-8 col-sm-offset-2">
+									<button class="btn-primary btn">Save</button>
+									<button class="btn-default btn">Reset</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div><!-- .tab-content -->
+		</div><!-- col-sm-8 -->
+	</div>
+</div>
+</div> <!-- container-fluid -->

@@ -1,0 +1,59 @@
+<div class="container" id="login-form" ng-controller="SignupPageController">
+    <a href="index.html" class="login-logo">
+        <h1><b>SHM Client</b></h1>
+        <!--<img masked-image src="assets/img/logo-big.png">-->
+    </a>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2>Вход для пользователей</h2>
+                    </div>
+                    <div class="panel-body">
+
+                        <form action="" class="form-horizontal" id="validate-form">
+                            <div class="form-group mb-md">
+                                <div class="col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                        <input type="text" auto-focus next-focus tabindex=1 ng-model="login" class="form-control" placeholder="Имя пользователя" data-parsley-minlength="6" placeholder="At least 6 characters" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-md">
+                                <div class="col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-key"></i>
+                                        </span>
+                                        <input type="password" next-focus tabindex=2 ng-model="password" class="form-control" id="exampleInputPassword1" placeholder="Пароль">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-n">
+                                <div class="col-xs-12">
+                                    <a href="extras-forgotpassword.html" class="pull-left">Забыли пароль?</a>
+                                    <!--<div class="checkbox-inline icheck pull-right p-n">
+                                        <label for="">
+                                            <input icheck type="checkbox"></input>
+                                            Запомнить пароль
+                                        </label>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="clearfix">
+                            <!--<a href="/extras-registration" class="btn btn-default pull-left">Регистрация</a>-->
+                            <a href="#/" tabindex=3 ng-click="logIn()" class="btn btn-primary pull-right">Войти</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

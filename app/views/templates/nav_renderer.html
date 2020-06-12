@@ -1,0 +1,15 @@
+<span ng-if="item.separator==true">{{item.label}}</span>
+<a ng-if="!item.separator" ng-click="select(item)" ng-href="{{item.url}}">
+  <i ng-if="item.iconClasses" class="{{item.iconClasses}}"></i><span>{{item.label}}</span>
+  <span ng-bind-html="item.html"></span>
+</a>
+<ul ng-if="item.children.length" data-slide-out-nav="item.open || (searchQuery.length>0 && item.selected)">
+    <li ng-repeat="item in item.children"
+      ng-class="{ hasChild: (item.children!==undefined),
+                      active: item.selected,
+                        open: (item.children!==undefined) && item.open,
+              'search-focus': (searchQuery.length>0 && item.selected) }"
+    ng-show="!(searchQuery.length>0 && !item.selected)"
+      ng-include="'templates/nav_renderer.html'"
+    ></li>
+</ul>

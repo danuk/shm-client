@@ -1,0 +1,16 @@
+<a class="info-tile tile-{{item.color}}" ng-href="{{item.href}}">
+    <div class="tile-heading">
+        <span>{{item.title}}</span>
+    </div>
+    <div class="tile-icon">
+    	<i class="{{item.classes}}"></i>
+    </div>
+    <div class="tile-body">
+        <span ng-show="item.text">{{item.text}}</span>
+        <span ng-show="!item.text" ng-transclude></span>
+    </div>
+
+    <div class="tile-footer">
+	    <span class="text-{{item.infoClass}}">{{item.titleBarInfo}}</span>
+    </div>
+</a>

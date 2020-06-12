@@ -1,0 +1,29 @@
+	<ol class="breadcrumb">
+		<li><a href="#/">Главная</a></li>
+		<li>Настройки</li>
+		<li class="active">Конфигурация</li>
+	</ol>
+
+<div class="container-fluid" ng-controller="ShmConfigController">
+	<div class="row">
+	  <div class="col-md-12">
+			<div class="panel panel-transparent">
+				<div class="panel-heading">
+					<h2>Настройки</h2>
+                    <div class="btn-group pull-right">
+                        <button class="btn btn-primary" ng-click="add()">Add</button>
+                    </div>
+				</div>
+				<div class="panel-body">
+					<div class="panel">
+						<div class="panel-body no-padding">
+							<div shm-table></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div> <!-- container-fluid -->

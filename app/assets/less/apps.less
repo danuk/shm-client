@@ -1,0 +1,640 @@
+// Themify
+//--------------------------------------------
+
+[class^="ti-"], [class*=" ti-"] {
+	&.ti {
+		line-height: inherit;
+	}
+}
+
+// Sparklines
+//--------------------------------------------
+
+	sparklines-composite {display: inline;}
+
+// FullCalendar
+//--------------------------------------------
+
+	.fc {
+		.fc-helper-skeleton td {border-top: 0 !important;}
+
+		.fc-view-container {
+			.fc-head .fc-widget-header {
+				border: 0;
+				text-transform: uppercase;
+				font-weight: 700;
+				.fc-widget-header {border: 0;}
+			}
+			.fc-body .fc-widget-content .fc-bg table > tbody > tr > td:last-child {border-right: 0}
+		}
+
+		.fc-view > table tbody > tr > td:last-child {border-right: 0}
+
+		.fc-icon-fa {
+			font-family: FontAwesome !important;
+		}
+
+		.fc-button {
+			.btn;
+			.btn-default;
+			.btn-sm;
+			border-radius: 0;
+			box-shadow: none;
+			&:active,&.active,&.fc-state-active {.active;}
+			&.fc-corner-left  {.border-left-radius(@border-radius-base)}
+			&.fc-corner-right {.border-right-radius(@border-radius-base)}
+			.fc-icon {
+				margin: 0;
+				top: -1px;
+			}
+		}
+
+		
+
+		.fc-toolbar {
+			margin-bottom: 32px;
+			h2 {
+				.h4;
+				font-weight: 400;
+				text-transform: uppercase;
+				margin: 0;
+			}
+			@media (max-width: @screen-xs) {
+				h2 {.h5; font-weight: 700; margin: 4px 0;}
+			}
+
+			.fc-button-group {
+				.btn-group;
+			}
+		}
+
+
+		.fc-view > table {
+			font-size: @font-size-small !important;
+			border-radius: @border-radius-base;
+			&:extend(.table-bordered all);
+			thead th {border-top: 0 !important; font-size: @font-size-small; font-weight: 400;}
+			tbody > tr > td {border: 1px solid @border-lighter; &:first-child{border-left: 0}}
+			tbody > tr > th:first-child {border-left: 0; border-bottom: 0;}
+			tbody > tr > th:last-child {border-right: 0; border-bottom: 0;}
+
+			.fc-event {
+				font-size: @font-size-small;
+				line-height: @line-height-small;
+				padding: 0;
+				border-radius: @border-radius-small;
+				border: none;
+				box-shadow: none;
+				.fc-content {
+					padding: 4px;
+					margin-left: 0;
+					margin-bottom: 2px;
+					.opacity(0.8);
+					.fc-time {
+						.opacity(0.4);
+						font-weight: 400;
+						text-transform: uppercase;
+					}
+					.fc-title {
+						padding: 0 2px;
+					}
+				}
+			}
+
+			.fc-content-skeleton tbody td {
+				border-top: 0;
+			}
+		}
+
+		.fc-event {
+			font-size: @font-size-small;
+			line-height: @line-height-small;
+			padding: 0;
+			border-radius: @border-radius-small;
+			border: none;
+			box-shadow: none;
+			.fc-content {
+				padding: 4px;
+				margin-left: 0;
+				margin-bottom: 2px;
+				.fc-time {
+					.opacity(0.4);
+					font-weight: 400;
+					text-transform: uppercase;
+				}
+				.fc-title {
+					padding: 0 2px;
+				}
+			}
+		}
+	}
+
+	#external-events {
+		.external-event.label {
+			letter-spacing: normal;
+			text-transform: none;
+			box-shadow: none;
+			font-size: @font-size-small;
+			padding: 4px;
+			font-weight: 400;
+			line-height: @line-height-small;
+			margin-bottom: 2px;
+			background-color: #3a87ad;
+			.opacity(0.8);
+		}
+	}
+	.external-event {cursor: move;}
+
+
+//X-Editable
+//--------------------------------------------
+.editable-container {
+	.form-group {margin-left: -10px;margin-right: -10px; padding-bottom: 7px;}
+	.btn {height: 32px;}
+}
+
+.form-control-static .editable-wrap {
+	margin-top: -9px;
+	button {.btn(); .btn-default(); .btn-sm();}
+}
+
+//Tokenfield
+//--------------------------------------------
+
+.tokenfield .tt-hint {
+  font-size: @font-size-base !important;
+  line-height: 1 !important;
+  border: 0 !important;
+  padding: 0 !important;
+  height: 19px !important;
+}
+
+// Parsley
+//--------------------------------------------
+	input.parsley-success,
+	select.parsley-success,
+	textarea.parsley-success {
+	  color: #468847;
+	  background-color: #DFF0D8;
+	  border: 1px solid #D6E9C6;
+	}
+
+	input.parsley-error,
+	select.parsley-error,
+	textarea.parsley-error {
+	  color: #B94A48;
+	  background-color: #F2DEDE;
+	  border: 1px solid #EED3D7;
+	}
+
+	.parsley-errors-list {
+	  margin: 2px 0 3px 0;
+	  padding: 0;
+	  list-style-type: none;
+	  font-size: 0.9em;
+	  line-height: 0.9em;
+	  opacity: 0;
+	  -moz-opacity: 0;
+	  -webkit-opacity: 0;
+
+	  transition: all .3s ease-in;
+	  -o-transition: all .3s ease-in;
+	  -ms-transition: all .3s ease-in-;
+	  -moz-transition: all .3s ease-in;
+	  -webkit-transition: all .3s ease-in;
+	}
+
+	.parsley-errors-list.filled {
+	  opacity: 1;
+	}
+
+
+// Typeahead
+//--------------------------------------------
+.typeahead .active a {
+	color: #616161 !important;
+}
+
+
+// Date Range Picker
+//--------------------------------------------
+	.daterangepicker .ranges li {font-size: @font-size-base !important; border-radius: @border-radius-base !important;}
+
+// Slider
+//--------------------------------------------
+	.slider.slider-horizontal .slider-track {
+		height: 4px !important;
+		box-shadow: none !important;
+		margin-top: -2px !important;
+	}
+
+	.slider.slider-horizontal .slider-handle {
+		margin-top: -6px !important;
+	}
+
+	.slider.slider-vertical .slider-track {
+		width: 4px !important;
+		box-shadow: none !important;
+		margin-top: -2px !important;
+	}
+
+	.slider.slider-vertical .slider-handle {
+		margin-left: -6px !important;
+	}
+
+	.slider-handle {
+		width: 16px !important;
+		height: 16px !important;
+		background: #fff !important;
+		box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.4) !important;
+		.opacity (1) !important;
+	}
+
+	.slider.slider-disabled {
+		.opacity (0.4) !important;
+	}
+
+	.slider-track {
+		background: @blue-gray-100 !important;
+	}
+
+	.slider-selection {
+		background: @blue-gray-500 !important;
+		box-shadow: none !important;
+	}
+
+// Angular Select
+//--------------------------------------------
+
+.ui-select-bootstrap > .ui-select-choices {
+
+}
+
+.ui-select-bootstrap .ui-select-toggle {
+	text-align: left;
+	padding: 2px 10px !important;
+}
+
+.ui-select-bootstrap .ui-select-choices-row > a {
+	padding: 2px 10px !important;
+}
+
+.ui-select-bootstrap .ui-select-toggle > .caret {
+	margin-top: 0 !important;
+	top: auto !important;
+	right: 16px !important;
+	line-height: 20px;
+}
+
+.ui-select-container + p {margin-top: 8px;}
+
+.ui-select-multiple.ui-select-bootstrap {
+	padding: 5px 10px !important;
+	height: 32px !important;
+	border: 1px solid @border-darker;
+	background: transparent !important;
+	min-height: 32px;
+	.ui-select-match-item {
+		margin-bottom: 2px;
+		margin-right: 4px !important;
+	}
+	.ui-select-match .close {
+		font-size: 14px !important;
+		line-height: 16px !important;
+	}
+	.ui-select-match .btn {
+		text-transform: none;
+		border: 0;
+		font-weight: 400;
+		&.btn-default {background-color: @gray-200;}
+		&.btn-xs {
+			font-size: 12px;
+			line-height: 16px;
+			padding: 0px 2px;
+		}
+	}
+	input.ui-select-search {
+		position: absolute;
+		height: 20px !important;
+		padding: 0;
+	}
+}
+
+// ngTable
+// ----------------------------------------------
+
+.ngFooterPanel {
+	border-top: 1px solid @border-lighter !important;
+	background-color: transparent !important;
+	padding: 8px !important;
+	.ngTotalSelectContainer {margin: 0 !important}
+	.form-control {display: inline; width: auto;}
+	.ngGridMaxPagesNumber {padding-right: 8px;}
+}
+
+.ngGrid {
+	background-color: transparent !important;
+	.ngHeaderText {padding: 10px 8px !important;}
+	.ngCellText {padding: 10px 8px !important;}
+	.ngTopPanel {
+		background-color: transparent !important;
+		.ngHeaderContainer {
+			border-bottom: 1px solid @border-lighter !important;
+			.ngVerticalBar {
+				visibility: hidden;
+			}
+		}
+	}
+
+	.ngPagerButton {
+		.btn();
+		.btn-default();
+	}
+
+	.ngRow{
+		&.even {background-color: @gray-50;}
+		&.odd {background-color: #fff}
+		border-top: 1px solid @border-lighter;
+		&.selected {background-color: @gray-100;}
+	}
+
+	input {
+		border:none;
+		background: inherit;
+		padding: 10px 8px;
+	}
+}
+
+.ngVerticalBarVisible {background-color: @border-lighter !important;}
+
+
+table .editable-controls input.editable-input,
+table .editable-controls select.editable-input {height: 24px !important}
+
+
+//EasyPieChart
+//--------------------------------------------
+	.easypiechart {
+		position: relative;
+		display: block;
+		width: 96px;
+		height: 96px;
+		line-height: 96px;
+		margin: 0 auto;
+		text-align: center;
+		.percent {
+			position: absolute;
+			width: 96px;
+			line-height: 96px;
+			font-size: @font-size-h4;
+			font-weight: 700;
+			color: @gray-darker;
+			&:after {
+				content: '%';
+			}
+		}
+        .percent-non {
+            &:extend(.easypiechart .percent all);
+            &:after {content: '';}
+            color: #fff;
+            font-weight: normal;
+            font-size: 36px;
+        }
+		& + label {
+			text-align: center;
+			display: block;
+			// font-size: @font-size-small;
+			// line-height: @line-height-small;
+			font-size: 0;
+			margin-top: 8px;
+			margin-bottom: 8px;
+			// font-weight: 400;
+			// text-transform: uppercase;
+			// color: @gray;
+			.label	{font-size: @font-size-small;}
+		}
+
+		// & + .label {
+		// 	text-align: center;
+		// 	margin-top: 8px;
+		// 	margin-bottom: 8px;
+		// }
+	}
+
+
+// XEditable
+// ----------------------------------------------
+
+.editable-input {
+	.form-control();
+	.input-sm();
+}
+
+select.editable-input, input.editable-input {
+	height: 28px;
+}
+select.editable-input {
+	padding: 4px 9px 5px 4px;
+}
+.editable-bstime table {
+	height: 110px !important;
+}
+.editable-bstime td {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+
+// Datepicker
+//--------------------------------------------
+input.datepicker + ul, .datepicker {
+	th .btn {
+		display: block;
+		width: 100%;
+	}
+	table {
+		border-collapse: separate;
+		border-spacing: 1px;
+	}
+	.btn-default.btn-info { //default datepicker js has wrong code which we can work around with the magical power of css
+		span {color: inherit !important;}
+	}
+}
+
+.datepicker table tr td span {
+	height: 24px;
+	//width: 24px;
+	line-height: 24px;
+	&:hover {background-color: transparent;}
+}
+
+.input-group .datepicker {
+	max-width: 100%;
+}
+
+.datepicker thead tr:first-child th:hover, 
+.datepicker tfoot tr th:hover {
+	background-color: transparent;
+}
+
+input.datepicker + ul {
+	right: inherit !important;
+	padding: 5px;
+}
+
+.datepicker.datepicker-dropdown {
+	right: auto;
+	padding: 5px;
+	td, th {text-align: center;}
+	tbody {
+		td {
+			cursor: pointer;
+			border-radius: @border-radius-base;
+		}
+		td.active {
+			background-color: #E9ECF0;
+			color: #656B79;
+		}
+		td.today {
+			background-color: @brand-primary;
+			color: #fff;
+		}
+	}
+}
+
+// Timepicker
+//--------------------------------------------
+table.timepicker, .timepicker table {
+	border-spacing: 5px 0;
+	border-collapse: separate;
+}
+
+
+// Rating
+//--------------------------------------------
+
+.rating i {
+	cursor: pointer; 
+	margin-left: 5px;
+}
+
+
+//flow.js
+//--------------------------------------------
+	.drop[flow-drop] {
+		border: 2px dashed @border-darker;
+		padding: 10px;
+	}
+
+	.gallery-box {
+		.title {
+			margin-bottom: 10px;
+			display: inline-block;
+		}
+	}
+
+
+// Skylo
+// --------------------------------------------------
+	.skylo {
+		z-index: 1249 !important;
+	}
+
+
+// Others
+//--------------------------------------------
+	[ng-cloak] {display: none;}
+
+
+// UI-pnotify
+//--------------------------------------------
+	.ui-pnotify {
+		.alert-warning {.ui-pnotify-variant(@brand-warning)}
+		.alert-success {.ui-pnotify-variant(@brand-success)}
+		.alert-danger {.ui-pnotify-variant(@brand-danger)}
+		.alert-info {.ui-pnotify-variant(@brand-info)}
+		.alert-inverse {.ui-pnotify-variant(@brand-inverse)}
+		.alert-primary {.ui-pnotify-variant(@brand-primary)}
+
+		color: #fff;
+
+	  	hr {
+		    border-top-color: rgba(255, 255, 255, 0.1);
+	  	}
+	  	.alert-link {
+	    	color: darken(#fff, 10%);
+	  	}
+
+		h1, h2, h3, h4, h5, h6, 
+		.h1, .h2, .h3, .h4, .h5, .h6 {
+	  		color: #fff;
+	  		small {
+	  			color: #fff; 
+	  		}
+		}
+
+		.ui-pnotify-shadow {
+			box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.24) !important;
+		}
+	}
+
+	.ui-pnotify-variant(@background) {
+	  background-color: @background;
+	  border-color: @background;
+	}
+
+	.ui-pnotify-closer, .ui-pnotify-sticker {
+		padding: 2px 8px;
+		margin: -12px 0 0 0 !important;
+		background: rgba(0, 0, 0, 0.1);
+		font-size: 10px;
+		color: rgba(255, 255, 255, 0.4);
+		&:hover, &:active, &:focus {background: rgba(0, 0, 0, 0.2);}
+	}
+
+	.ui-pnotify-closer {border-bottom-right-radius: @border-radius-base;}
+	.ui-pnotify-sticker {border-bottom-left-radius: @border-radius-base;}
+
+	.ui-pnotify-text {font-size: @font-size-small !important; color: #fff;}
+	.ui-pnotify-title {font-size: @font-size-base !important; color: #fff;}
+
+	.ui-pnotify-icon, .ui-pnotify-icon span {margin-top: 0.05em !important; color: #fff;}
+
+
+// Text-Angular
+//--------------------------------------------
+
+.ta-root {
+	.ta-toolbar {
+		margin-bottom: 4px;
+		.btn-group {
+			margin: 0 4px 4px 0;
+		}
+	}
+}
+
+// Skylo
+// --------------------------------------------------
+.skylo {
+	height: 4px !important;
+	z-index: 1249 !important;
+}
+
+body.sidebar-collapsed .widget-body > ul.acc-menu { 
+	// Arrows on Collapse
+	> li.hasChild.open>a:before {content:"";}
+	> li.hasChild > a:before {content:"";}
+	> li.hasChild:hover>a:before {content: "\f107";}
+
+	// fix for sidebar collapsed hover
+	ul {display: none !important;}
+	li:hover > ul {display: block !important;}
+}
+
+
+// jVectorMap
+// --------------------------------------------------
+
+.jvectormap-label {
+	&:extend(.jvectormap-tip all);
+}

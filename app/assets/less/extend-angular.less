@@ -1,0 +1,45 @@
+
+// Modal (and Bootbox)
+// -----------------------------------------
+.modal-backdrop {
+	position: fixed;
+	bottom: 0;
+	z-index: 1240;
+}
+
+// Form Validation
+// -----------------------------------------
+form .ng-dirty.ng-invalid {
+	border-color: @state-danger-text;
+	color: @state-danger-text;
+}
+form .ng-dirty.ng-valid {
+	border-color: @state-success-text;
+	color: @state-success-text;
+}
+form .no-validate {
+	border: 1px solid @border-darker !important;
+	color: @gray-dark !important;
+}
+
+.select2-container.ng-dirty {
+	border: none !important;
+}
+
+// Transition Animations
+// -----------------------------------------
+.dropdown.open .dropdown-menu.animated {
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+	-webkit-animation-duration: .5s;
+	animation-duration: .5s;
+}
+.dropdown-menu.animated {
+	-webkit-animation-name: none;
+	animation-name: none;
+}
+
+.mainview-animation.animated.ng-enter {
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+}

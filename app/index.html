@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en"
+  ng-app="themesApp"
+  ng-controller="MainController"
+>
+<head>
+  <meta charset="utf-8">
+  <title>SHM Client</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="SHM Client">
+	<meta name="author" content="DaNuk (DNk)">
+
+	<!-- prochtml:remove:dist -->
+	<link href="assets/less/styles-alternative.less" rel="stylesheet/less" media="all">
+	<!-- /prochtml -->
+
+    <link type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600' rel='stylesheet'>
+
+	<!-- The following CSS are included as plugins and can be removed if unused-->
+
+	<!-- build:css assets/css/vendor.css -->
+	<!-- bower:css -->
+	<link rel="stylesheet" href="bower_components/ng-grid/ng-grid.css" />
+	<link rel="stylesheet" href="bower_components/skylo/vendor/styles/skylo.css" />
+	<link rel="stylesheet" href="bower_components/themify-icons/themify-icons.css" />
+	<!-- endbower -->
+	<link rel='stylesheet' type='text/css' href='assets/plugins/form-fseditor/fseditor.css' />
+	<link rel='stylesheet' type='text/css' href='assets/plugins/jcrop/css/jquery.Jcrop.min.css' />
+	<link rel="stylesheet" type='text/css' href="assets/plugins/iCheck/skins/all.css" />
+	<link rel="stylesheet" type='text/css' href="assets/plugins/google-code-prettify/prettify.css" />
+	<!-- endbuild -->
+
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+
+	<!-- prochtml:remove:dist -->
+	<!-- build:css({.tmp,app}) assets/css/main.css -->
+	  <link rel="stylesheet" data-test-attr href="assets/css/styles.css">
+	<!-- endbuild -->
+	<!-- /prochtml -->
+	<link rel="stylesheet" ng-if="!getLayoutOption('alternateStyle')" href="assets/css/main.css">
+	<link rel="stylesheet prefetch" ng-if="getLayoutOption('alternateStyle')" href="assets/css/main-alternative.css">
+
+	<!--[if lt IE 10]>
+        {{ "js/media.match.min.js" | asset_url | script_tag }}
+        {{ "js/respond.min.js" | asset_url | script_tag }}
+        {{ "js/placeholder.min.js" | asset_url | script_tag }}
+    <![endif]-->
+
+	<!-- prochtml:remove:dist -->
+	<script type="text/javascript">less = { env: 'development'};</script>
+	<script type="text/javascript" src="assets/plugins/misc/less.js"></script>
+	<!-- /prochtml -->
+</head>
+
+<body
+  ng-class="{
+			  'static-header': !getLayoutOption('fixedHeader'),
+			  'focused-form': getLayoutOption('fullscreen'),
+			  'horizontal-nav': getLayoutOption('layoutHorizontal'),
+			  'layout-boxed': getLayoutOption('layoutBoxed'),
+			  'extrabar-show': getLayoutOption('extraBarShown'),
+			  'sidebar-collapsed': getLayoutOption('leftbarCollapsed') && !getLayoutOption('leftbarShown'),
+			  'show-sidebar': getLayoutOption('leftbarShown')
+			}"
+  class="animated-content"
+  ng-click="hideHeaderBar();"
+  to-top-on-load
+  faux-offcanvas
+  wijets
+>
+
+<!-- HEADER -->
+	<div class="extrabar">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="info-tile info-tile-alt tile-warning">
+					<div class="tile-icon"><i class="ti ti-eye"></i></div>
+					<div class="tile-heading"><span>Page Views</span></div>
+					<div class="tile-body"><span>1,600</span></div>
+					<div class="tile-footer"><span class="text-danger">-7.6% <i class="ti ti-arrow-down"></i></span></div>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="info-tile info-tile-alt tile-success">
+					<div class="tile-icon"><i class="ti ti-thumb-up"></i></div>
+					<div class="tile-heading"><span>Likes</span></div>
+					<div class="tile-body"><span>345</span></div>
+					<div class="tile-footer"><span class="text-success">+15.4% <i class="ti ti-arrow-up"></i></span></div>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="info-tile info-tile-alt tile-danger">
+					<div class="tile-icon"><i class="ti ti-check-box"></i></div>
+					<div class="tile-heading"><span>Bugs Fixed</span></div>
+					<div class="tile-body"><span>21</span></div>
+					<div class="tile-footer"><span class="text-success">+10.4% <i class="ti ti-arrow-up"></i></span></div>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="info-tile info-tile-alt tile-info">
+					<div class="tile-icon"><i class="ti ti-user"></i></div>
+					<div class="tile-heading"><span>New Members</span></div>
+					<div class="tile-body"><span>124</span></div>
+					<div class="tile-footer"><span class="text-danger">-25.4% <i class="ti ti-arrow-down"></i></span></div>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="info-tile info-tile-alt tile-teal">
+					<div class="tile-icon"><i class="ti ti-gift"></i></div>
+					<div class="tile-heading"><span>Gifts</span></div>
+					<div class="tile-body"><span>16</span></div>
+					<div class="tile-footer"><span class="text-danger">-7.6% <i class="ti ti-arrow-down"></i></span></div>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="info-tile info-tile-alt tile-indigo">
+					<div class="tile-icon"><i class="ti ti-menu-alt"></i></div>
+					<div class="tile-heading"><span>Tasks</span></div>
+					<div class="tile-body"><span>17</span></div>
+					<div class="tile-footer"><span class="text-danger">-26.4% <i class="ti ti-arrow-down"></i></span></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<header
+		id="topnav"
+		class="navbar ng-hide {{getLayoutOption('topNavThemeClass')}}"
+		ng-class="{'navbar-fixed-top': getLayoutOption('fixedHeader'), 'navbar-static-top': !getLayoutOption('fixedHeader')}"
+		role="banner"
+		ng-show="!layoutLoading"
+		ng-cloak>
+
+		<div class="logo-area">
+			<span id="trigger-sidebar" class="toolbar-trigger toolbar-icon-bg" ng-click="toggleLeftBar()" ng-show="!getLayoutOption('layoutHorizontal')">
+				<a data-toggle="tooltips" data-placement="right" title="Toggle Sidebar">
+					<span class="icon-bg">
+						<i class="ti ti-shift-left" ng-show="!getLayoutOption('leftbarCollapsed')"></i>
+						<i class="ti ti-shift-right" ng-show="getLayoutOption('leftbarCollapsed')"></i>
+					</span>
+				</a>
+			</span>
+
+			<a class="navbar-brand" href="#/">SHM Client</a>
+
+			<div class="toolbar-icon-bg hidden-xs" id="toolbar-search" ng-class="{
+			  active: getLayoutOption('showSmallSearchBar')
+			}">
+		        <div class="input-group">
+	            	<span class="input-group-btn"><button class="btn" type="button"><i class="ti ti-search"></i></button></span>
+					<input type="text" class="form-control" placeholder="Search...">
+					<span class="input-group-btn">
+						<button class="btn" type="button" ng-click="toggleSearchBar($event)"><i class="ti ti-close"></i></button>
+					</span>
+				</div>
+		    </div>
+		</div>
+
+		<div class="yamm navbar-left navbar-collapse collapse in">
+			<ul class="nav navbar-nav">
+				<li class="dropdown" id="widget-classicmenu" ng-show="user.full_name.length">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                        [{{ user.user_id }}] {{ user.full_name }}
+                        <span class="caret"></span>
+                    </a>
+				  <ul class="dropdown-menu" role="menu">
+					<li><a href="/#!/user">Профиль</a></li>
+					<li class="divider"></li>
+					<li><a href="/#!/user_services">Услуги</a></li>
+					<li class="divider"></li>
+					<li><a href="/#!/pays">Платежи</a></li>
+					<li><a href="/#!/withdraws">Списания</a></li>
+					<li class="divider"></li>
+					<li><a href="#">Персональные данные</a></li>
+				  </ul>
+				</li>
+			</ul>
+		</div>
+
+
+		<ul class="nav navbar-nav pull-right toolbar">
+
+			<li class="dropdown toolbar-icon-bg" autocollapse>
+				<a id="navbar-links-toggle" data-toggle="collapse" data-target="header>.navbar-collapse">
+					<span class="icon-bg">
+						<i class="ti ti-more"></i>
+					</span>
+				</a>
+			</li>
+
+			<li class="toolbar-icon-bg visible-xs-block">
+				<a href="" ng-click="toggleSearchBar($event)"><span class="icon-bg"><i class="ti ti-search"></i></span></a>
+			</li>
+
+			<li class="toolbar-icon-bg hidden-xs">
+	            <a href="" ng-click="toggleSearchBar($event)"><span class="icon-bg"><i class="ti ti-search"></i></span></i></a>
+	        </li>
+
+	        <li class="toolbar-icon-bg hidden-xs" toggle-fullscreen>
+	            <a href="" class="toggle-fullscreen"><span class="icon-bg"><i class="ti ti-fullscreen"></i></span></i></a>
+	        </li>
+
+			<li class="dropdown" ng-show="!isLoggedIn">
+				<a href="#/extras-login2" style="font-size: 14px"><i class="fa fa-sign-in"></i> Log in</a>
+			</li>
+
+		  <li class="dropdown toolbar-icon-bg" ng-show="isLoggedIn" dropdown>
+			<a href="#" class="dropdown-toggle" dropdown-toggle><span class="icon-bg"><i class="ti ti-user"></i></span></i></a>
+			<ul class="dropdown-menu animated userinfo arrow">
+                <!--
+				<li><a ng-click="nop()" href="#/"><i class="ti ti-user"></i><span>Profile</span><span class="badge badge-info pull-right">80%</span></a></li>
+				<li><a href="#/"><i class="ti ti-panel"></i><span>Account</span></a></li>
+				<li><a href="#/"><i class="ti ti-settings"></i><span>Settings</span></a></li>
+				<li class="divider"></li>
+				<li><a href="#/"><i class="ti ti-stats-up"></i><span>Earnings</span></a></li>
+				<li><a href="#/"><i class="ti ti-view-list-alt"></i><span>Statement</span></a></li>
+				<li><a href="#/"><i class="ti ti-money"></i><span>Withdrawals</span></a></li>
+				<li class="divider"></li>
+                -->
+				<li><a href="#/" ng-click="logOut()"><i class="ti ti-shift-right"></i><span>Sign Out</span></a></li>
+			</ul>
+		  </li>
+		</ul>
+	</header>
+
+<!-- /HEADER -->
+
+	<div id="wrapper">
+		<nav id="headernav" class="navbar ng-hide {{getLayoutOption('sidebarThemeClass').replace('sidebar', 'navbar')}}" role="navigation" ng-show="getLayoutOption('layoutHorizontal') && !layoutLoading">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<i class="fa fa-reorder"></i>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse navbar-ex1-collapse" ng-class="{'large-icons-nav': getLayoutOption('layoutHorizontalLargeIcons')}" id="horizontal-navbar">
+				  <ul ng-controller="NavigationController" class="nav navbar-nav">
+					  <li ng-repeat="item in menu"
+						  ng-if="!(item.hideOnHorizontal||item.separator)"
+						  ng-class="{ hasChild: (item.children!==undefined),
+										active: item.selected,
+										  open: (item.children!==undefined) && item.open,
+							   'nav-separator': item.separator==true }"
+						  ng-include="'templates/nav_renderer_horizontal.html'"
+						></li>
+				  </ul>
+			</div>
+		</nav>
+		<div id="layout-static">
+			<div class="static-sidebar-wrapper {{getLayoutOption('sidebarThemeClass')}}" ng-show="!layoutLoading">
+				<div class="static-sidebar" role="navigation">
+					<div class="sidebar">
+						<div class="widget stay-on-collapse">
+							<nav class="widget-body">
+								<ul ng-controller="NavigationController" class="acc-menu" sticky-scroll="40">
+								  <li ng-repeat="item in menu"
+									  ng-class="{ hasChild: (item.children!==undefined),
+													active: item.selected,
+													  open: (item.children!==undefined) && item.open,
+										   'nav-separator': item.separator==true,
+					            			'search-focus': (searchQuery.length>0 && item.selected) }"
+					            		ng-show="!(searchQuery.length && !item.selected)"
+									  ng-include="'templates/nav_renderer.html'"
+									></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div> <!-- #sidebar-->
+			</div>
+			<div class="static-content-wrapper">
+				<div class="static-content">
+					<div class="page-content mainview-animation animated" ng-view="">
+					</div> <!--wrap -->
+				</div>
+				<footer role="contentinfo" ng-show="!layoutLoading" ng-cloak>
+					<div class="clearfix">
+				        <ul class="list-unstyled list-inline pull-left">
+				            <li><h6 style="margin: 0;">&copy; 2019 DaNuk (DNk)</h6></li>
+				        </ul>
+				        <button class="pull-right btn btn-link btn-xs hidden-print" back-to-top><i class="ti ti-arrow-up"></i></button>
+				    </div>
+				</footer>
+			</div>
+		</div>
+	</div>
+
+<!-- Switcher -->
+<!--
+    <div class="demo-options">
+        <div class="demo-options-icon"><i class="ti-paint-bucket"></i></div>
+        <div class="demo-heading">Demo Settings</div>
+
+        <div class="demo-body">
+            <div class="tabular">
+                <div class="tabular-row">
+                    <div class="tabular-cell">Fixed Header</div>
+                    <div class="tabular-cell demo-switches">
+                    	<input type="checkbox" ng-model="layoutFixedHeader" class="js-switch switchery-xs" ui-switch="{color: '#8bc34a', secondaryColor: '#e0e0e0', size: 'small'}">
+                    </div>
+                </div>
+                <div class="tabular-row">
+                    <div class="tabular-cell">Boxed Layout</div>
+                    <div class="tabular-cell demo-switches">
+                    	<input type="checkbox" ng-model="layoutLayoutBoxed" class="js-switch switchery-xs" ui-switch="{color: '#8bc34a', secondaryColor: '#e0e0e0', size: 'small'}">
+                    </div>
+                </div>
+                <div class="tabular-row">
+                    <div class="tabular-cell">Collapse Leftbar</div>
+                    <div class="tabular-cell demo-switches">
+                    	<input type="checkbox" ng-model="layoutLeftbarCollapsed" class="js-switch switchery-xs" ui-switch="{color: '#8bc34a', secondaryColor: '#e0e0e0', size: 'small'}">
+                    </div>
+                </div>
+                <div class="tabular-row">
+                    <div class="tabular-cell">Alternate Style</div>
+                    <div class="tabular-cell demo-switches">
+                    	<input type="checkbox" ng-model="layoutAlternateStyle" class="js-switch switchery-xs" ui-switch="{color: '#8bc34a', secondaryColor: '#e0e0e0', size: 'small'}">
+                    </div>
+                    {{getLayoutOption('layoutAlternateStyle')}}
+                </div>
+             </div>
+
+        </div>
+
+        <div class="demo-body">
+            <div class="option-title">Topnav</div>
+            <ul id="demo-header-color" class="demo-color-list">
+                <li><span class="demo-cyan" ng-click="setNavbarClass('navbar-cyan', $event)"></span></li>
+                <li><span class="demo-light-blue" ng-click="setNavbarClass('navbar-light-blue', $event)"></span></li>
+                <li><span class="demo-blue" ng-click="setNavbarClass('navbar-blue', $event)"></span></li>
+                <li><span class="demo-indigo" ng-click="setNavbarClass('navbar-indigo', $event)"></span></li>
+                <li><span class="demo-deep-purple" ng-click="setNavbarClass('navbar-deep-purple', $event)"></span></li>
+                <li><span class="demo-purple" ng-click="setNavbarClass('navbar-purple', $event)"></span></li>
+                <li><span class="demo-pink" ng-click="setNavbarClass('navbar-pink', $event)"></span></li>
+                <li><span class="demo-red" ng-click="setNavbarClass('navbar-red', $event)"></span></li>
+                <li><span class="demo-teal" ng-click="setNavbarClass('navbar-teal', $event)"></span></li>
+                <li><span class="demo-green" ng-click="setNavbarClass('navbar-green', $event)"></span></li>
+                <li><span class="demo-light-green" ng-click="setNavbarClass('navbar-light-green', $event)"></span></li>
+                <li><span class="demo-lime" ng-click="setNavbarClass('navbar-lime', $event)"></span></li>
+                <li><span class="demo-yellow" ng-click="setNavbarClass('navbar-yellow', $event)"></span></li>
+                <li><span class="demo-amber" ng-click="setNavbarClass('navbar-amber', $event)"></span></li>
+                <li><span class="demo-orange" ng-click="setNavbarClass('navbar-orange', $event)"></span></li>
+                <li><span class="demo-deep-orange" ng-click="setNavbarClass('navbar-deep-orange', $event)"></span></li>
+                <li><span class="demo-bluegray" ng-click="setNavbarClass('navbar-bluegray', $event)"></span></li>
+                <li><span class="demo-gray" ng-click="setNavbarClass('navbar-gray', $event)"></span></li>
+                <li><span class="demo-brown" ng-click="setNavbarClass('navbar-brown', $event)"></span></li>
+            </ul>
+        </div>
+
+        <div class="demo-body">
+            <div class="option-title">Sidebar</div>
+            <ul id="demo-sidebar-color" class="demo-color-list">
+                <li><span class="demo-cyan" ng-click="setSidebarClass('sidebar-cyan', $event)"></span></li>
+                <li><span class="demo-light-blue" ng-click="setSidebarClass('sidebar-light-blue', $event)"></span></li>
+                <li><span class="demo-blue" ng-click="setSidebarClass('sidebar-blue', $event)"></span></li>
+                <li><span class="demo-indigo" ng-click="setSidebarClass('sidebar-indigo', $event)"></span></li>
+                <li><span class="demo-deep-purple" ng-click="setSidebarClass('sidebar-deep-purple', $event)"></span></li>
+                <li><span class="demo-purple" ng-click="setSidebarClass('sidebar-purple', $event)"></span></li>
+                <li><span class="demo-pink" ng-click="setSidebarClass('sidebar-pink', $event)"></span></li>
+                <li><span class="demo-red" ng-click="setSidebarClass('sidebar-red', $event)"></span></li>
+                <li><span class="demo-teal" ng-click="setSidebarClass('sidebar-teal', $event)"></span></li>
+                <li><span class="demo-green" ng-click="setSidebarClass('sidebar-green', $event)"></span></li>
+                <li><span class="demo-light-green" ng-click="setSidebarClass('sidebar-light-green', $event)"></span></li>
+                <li><span class="demo-lime" ng-click="setSidebarClass('sidebar-lime', $event)"></span></li>
+                <li><span class="demo-yellow" ng-click="setSidebarClass('sidebar-yellow', $event)"></span></li>
+                <li><span class="demo-amber" ng-click="setSidebarClass('sidebar-amber', $event)"></span></li>
+                <li><span class="demo-orange" ng-click="setSidebarClass('sidebar-orange', $event)"></span></li>
+                <li><span class="demo-deep-orange" ng-click="setSidebarClass('sidebar-deep-orange', $event)"></span></li>
+                <li><span class="demo-bluegray" ng-click="setSidebarClass('sidebar-bluegray', $event)"></span></li>
+                <li><span class="demo-gray" ng-click="setSidebarClass('sidebar-gray', $event)"></span></li>
+                <li><span class="demo-brown" ng-click="setSidebarClass('sidebar-brown', $event)"></span></li>
+            </ul>
+        </div>
+    </div>
+-->
+<!-- /Switcher -->
+
+	<!--[if lt IE 9]>
+	<script src="bower_components/es5-shim/es5-shim.js"></script>
+	<script src="bower_components/json3/lib/json3.min.js"></script>
+	<![endif]-->
+
+	<!-- build:js scripts/vendor.js -->
+	<!-- bower:js -->
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-resource/angular-resource.js"></script>
+    <script src="node_modules/angular-cookies/angular-cookies.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.js"></script>
+
+	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+	<script src="bower_components/ng-grid/build/ng-grid.js"></script>
+	<script src="bower_components/bootbox.js/bootbox.js"></script>
+
+    <script src="bower_components/enquire/dist/enquire.js"></script>
+    <script src="bower_components/skylo/vendor/scripts/skylo.js"></script>
+
+    <script src="bower_components/iCheck/icheck.min.js"></script>
+
+	<!-- endbower -->
+
+	<script type='text/javascript' src='assets/plugins/wijets/wijets.js'></script>
+	<script type='text/javascript' src="assets/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js"></script>
+
+	<!-- endbuild -->
+
+	  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+	<script src="scripts/core/controllers/mainController.js"></script>
+	<script src="scripts/core/controllers/signupPage.js"></script>
+	<script src="scripts/core/controllers/navigationController.js"></script>
+	<script src="scripts/core/controllers/notificationsController.js"></script>
+	<script src="scripts/core/controllers/messagesController.js"></script>
+	<script src="scripts/core/directives/directives.js"></script>
+	<script src="scripts/core/directives/form.js"></script>
+	<script src="scripts/core/directives/ui.js"></script>
+	<script src="scripts/core/modules/templateOverrides.js"></script>
+	<script src="scripts/core/modules/templates.js"></script>
+	<script src="scripts/core/services/services.js"></script>
+	<script src="scripts/core/services/theme.js"></script>
+	<script src="scripts/core/theme.js"></script>
+	<script src="scripts/app.js"></script>
+
+    <link rel="stylesheet" href="node_modules/angular-ui-grid/ui-grid.min.css" />
+    <script src="node_modules/angular-ui-grid/ui-grid.min.js"></script>
+    <script src="node_modules/angular-jsoneditor/dist/angular-jsoneditor.js"></script>
+
+    <script src="scripts/shm/modules/table.js"></script>
+    <script src="scripts/shm/modules/table_tree.js"></script>
+    <script src="scripts/shm/modules/shm.js"></script>
+    <script src="scripts/shm/modules/shm_request.js"></script>
+    <script src="scripts/shm/modules/user_services_select.js"></script>
+    <script src="scripts/shm/modules/pay_systems_list.js"></script>
+
+    <script src="scripts/shm/user.js"></script>
+    <script src="scripts/shm/user_services.js"></script>
+    <script src="scripts/shm/config.js"></script>
+    <script src="scripts/shm/withdraws.js"></script>
+    <script src="scripts/shm/pays.js"></script>
+	  <!-- endbuild -->
+</body>
+</html>

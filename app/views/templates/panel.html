@@ -1,0 +1,9 @@
+<div class="panel {{panelClass}}">
+  <div class="panel-heading">
+        <h2><i ng-if="panelIcon" class="{{panelIcon}}"></i>{{(panelIcon? " ":"")+heading}}</h2>
+        <div class="panel-ctrls">
+        </div>
+  </div>
+  <div class="panel-body" ng-transclude>
+  </div>
+</div>

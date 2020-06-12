@@ -1,0 +1,42 @@
+	<ol class="breadcrumb">
+		<li><a href="#/">Главная</a></li>
+		<li><a href="/#!/users">Пользователи</a></li>
+		<li class="active">Услуги</li>
+	</ol>
+
+<div class="container-fluid" ng-controller="ShmUserServicesController">
+	<div class="row">
+	  <div class="col-md-12">
+			<div class="panel panel-transparent">
+				<div class="panel-heading">
+					<h2>Услуги Пользователей</h2>
+                    <div class="btn-group pull-right">
+                        <button class="btn btn-primary" ng-click="add()">Add</button>
+                    </div>
+				</div>
+				<div class="panel-body">
+					<div class="panel">
+						<div class="panel-body no-padding">
+							<div shm-table-tree></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/ng-template" id="edit.tmpl">
+		<div class="modal-header">
+			<h4 class="modal-title">{{ title }}</h4>
+		</div>
+		<div class="modal-body">
+			<div ng-repeat="(key, value) in row">
+				{{value}}
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+		</div>
+	</script>
+
+</div> <!-- container-fluid -->

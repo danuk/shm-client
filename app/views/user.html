@@ -1,0 +1,100 @@
+	<ol class="breadcrumb">
+		<li><a href="#/">Главная</a></li>
+		<li><a href="#!/users">Пользователи</a></li>
+		<li class="active">{{ user.full_name }}</li>
+	</ol>
+
+<div class="container-fluid" ng-controller="ShmUserController">
+	<div class="row-fluid">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Профиль
+                </div>
+                <form name="userForm" class="form-horizontal row-border">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Идентификатор (user_id)</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" readonly="readonly" ng-model="data.user_id">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Логин</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" readonly="readonly" ng-model="data.login">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Клиент</label>
+                            <div class="col-sm-9">
+                                <input type="text" ng-model="data.full_name" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Дата регистрации</label>
+                            <div class="col-sm-3">
+                                <input type="text" ng-model="data.created" class="form-control" readonly="readonly">
+                            </div>
+                            <div class="col-sm-1"></div>
+                            <label class="col-sm-2 control-label">Последний заход</label>
+                            <div class="col-sm-3">
+                                <input type="text" ng-model="data.last_login" class="form-control" readonly="readonly">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Баланс</label>
+                            <div class="col-sm-3">
+                                <input type="number" step="0.01" ng-model="data.balance" class="form-control" readonly="readonly">
+                            </div>
+                            <div class="col-sm-1"></div>
+                            <label class="col-sm-2 control-label">Бонусы</label>
+                            <div class="col-sm-3">
+                                <input type="number" step="0.01" ng-model="data.bonus" class="form-control" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Кредит</label>
+                            <div class="col-sm-2">
+                                <input type="number" step="0.01" ng-model="data.credit" class="form-control" required ng-disabled="data.can_overdraft">
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="data.can_overdraft">Безграничный кредит
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Статус</label>
+                            <div class="col-sm-8">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" ng-model="data.block" ng-true-value="0" ng-false-value="1">
+                                        <span class="text-success" ng-if="!data.block">Активен</span>
+                                        <span class="text-danger" ng-if="data.block">Заблокирован</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Комментарий</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" ng-model="data.comment"></textarea>
+                            </div>
+                        </div>
+                    </div> <!-- modal-body -->
+
+                    <div class="modal-footer">
+                        <button class="btn btn-success" ng-disabled="userForm.$invalid" ng-click="save()">Save</button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+    
+
+</div> <!-- container-fluid -->

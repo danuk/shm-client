@@ -1,0 +1,167 @@
+    <ol class="breadcrumb">
+		<li><a href="#/">Dashboard</a></li>
+		<li>Extras</li>
+		<li class="active">Inbox</li>
+	</ol>
+
+
+<div class="container-fluid" ng-controller="ComposeController">
+	<div class="row">
+		<div class="col-md-3">
+			<a class="btn btn-lg btn-indigo btn-block mb-xl" href="#/compose-mail">Compose</a>
+			
+			<div class="list-group inbox-menu list-group-alternate">
+				<a href="#" class="list-group-item active"><i class="ti ti-email"></i>Inbox <span class="badge badge-primary">3</span></a>
+				<a href="#" class="list-group-item"><i class="ti ti-share"></i>Sent </a>
+				<a href="#" class="list-group-item"><i class="ti ti-file"></i>Drafts <span class="badge badge-orange">1</span></a>
+				<a href="#" class="list-group-item"><i class="ti ti-trash"></i>Trash</a>
+				<a href="#" class="list-group-item"><i class="ti ti-control-record circle-red"></i>Important</a>
+				<a href="#" class="list-group-item"><i class="ti ti-control-record circle-green"></i>Work</a>
+				<a href="#" class="list-group-item"><i class="ti ti-control-record circle-purple"></i>Personal</a>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div class="input-group mb-xl">
+				<input type="text" class="form-control input-lg" placeholder="Search mail...">
+				<span class="input-group-btn">
+					<button class="btn btn-default btn-lg" type="button"><i class="fa fa-search"></i></button>
+				</span>
+			</div><!-- /input-group -->
+
+			<div class="panel panel-inbox-read">
+				<div class="panel-body">
+					<div class="inbox-mail-heading">
+						<div class="clearfix">
+							<div class="pull-left">
+						        <a href="#/extras-inbox" class="btn btn-lg btn-default"><i class="ti ti-shift-left fa-rotate-270"></i></a>
+						        <div class="btn-group">
+		                            <a href="#" class="btn btn-lg btn-default"><i class="ti ti-archive"></i></a>
+		                            <a href="#" class="btn btn-lg btn-default"><i class="ti ti-alert"></i></a>
+		                            <a href="#" class="btn btn-lg btn-default"><i class="ti ti-trash"></i></a>
+		                        </div>
+		                        <div class="btn-group">
+						            <a href="#" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown"><i class="ti ti-folder"></i> <i class="caret"></i></a>
+						            <ul class="dropdown-menu">
+						                <li><a href="#">Spam</a></li>
+						                <li><a href="#">Trash</a></li>
+						                <li class="divider"></li>
+						                <li><a href="#">Work</a></li>
+						                <li><a href="#">Personal</a></li>
+						                <li><a href="#">Others</a></li>
+						                <li class="divider"></li>
+						                <li><a href="#">Create New</a></li>
+						            </ul>
+						        </div>
+						        <div class="btn-group">
+						            <a href="#" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown">More <i class="caret"></i></a>
+						            <ul class="dropdown-menu">
+						                <li><a href="#">Action</a></li>
+						                <li><a href="#">Another Action</a></li>
+						                <li><a href="#">More Action</a></li>
+						                <li><a href="#">Something Else</a></li>
+						                <li class="divider"></li>
+						                <li><a href="#">Separated Link</a></li>
+						            </ul>
+						        </div>
+						    </div>
+						    <div class="pull-right hidden-xs">
+						    	<strong>1</strong> of <strong>50</strong>
+						    	<div class="btn-group ml-sm">
+		                            <a href="#" class="btn btn-lg btn-default"><i class="ti ti-angle-left"></i></a>
+		                            <a href="#" class="btn btn-lg btn-default"><i class="ti ti-angle-right"></i></a>
+		                        </div>
+						    </div>
+						</div>
+					</div>
+
+					<div class="clearfix">
+						<h4 class="inbox-read-title pull-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h4>
+						<a href="#" class="btn btn-sm btn-default pull-right"><i class="ti ti-printer"></i></a>
+					</div>
+
+					<hr>
+
+					<div class="inbox-read-details clearfix">
+						<div class="pull-left">
+							<img masked-image class="inbox-read-sender-avatar img-rounded" src="assets/demo/avatar/avatar_06.png" alt="Dangerfield">
+							<span class="inbox-read-sender-name pull-left">Miles Morales</span>&nbsp;&nbsp;
+							<span class="inbox-read-sender-email">&lt;miles.morales@gmail.com&gt;</span>
+							
+						</div>
+						<div class="pull-right">
+							<span class="inbox-read-sent-info">to <strong>me</strong>, <a href="#"><strong>Jason</strong></a> on <em>July 8, 2014</em>&nbsp;&nbsp;&nbsp;<i class="ti ti-clip"></i>&nbsp;&nbsp;&nbsp;</span>
+							<div class="btn-group">
+							  <a href="app-inbox-compose.html" class="btn btn-sm btn-midnightblue"><i class="fa fa-mail-reply visible-xs"></i><span class="hidden-xs">Reply</span></a>
+							  <a href="#" class="btn btn-sm btn-midnightblue dropdown-toggle" data-toggle="dropdown">
+							    <span class="caret"></span>
+							    <span class="sr-only">Toggle Dropdown</span>
+							  </a>
+							  <ul class="dropdown-menu" role="menu">
+							  	<li><a href="#">Reply</a></li>
+							    <li><a href="#">Reply To All</a></li>
+							    <li><a href="#">Forward</a></li>
+							    <li><a href="#">Something else here</a></li>
+							    <li class="divider"></li>
+							    <li><a href="#">Print</a></li>
+							    <li><a href="#">Mark as spam</a></li>
+							    <li><a href="#">Mark as unread</a></li>
+							    <li><a href="#">Delete this message</a></li>
+							  </ul>
+							</div>
+						</div>
+					</div>
+
+					<hr>
+
+					<div class="msg-body">
+						
+						<p>Hi There!</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis iusto dolor, expedita aspernatur accusamus, incidunt sint facere, eius atque quasi cupiditate. Eos sed officiis, voluptas dignissimos ab minus molestias consectetur aliquam eligendi esse commodi fugit ut provident sint eveniet quae ducimus rerum tempore quidem perspiciatis, veniam vel quaerat, aut iusto? Labore molestiae odio, voluptates porro. Repudiandae ad, ea totam! Eum saepe esse dolor reprehenderit consequuntur? Minus harum adipisci explicabo voluptates quis quia, voluptatum excepturi quos error provident esse mollitia ad est laborum voluptas, qui atque obcaecati iure hic consequatur voluptatem. Sapiente consectetur modi aut amet minima ducimus quas. Dicta, ratione.</p>
+						<p>Eum repudiandae architecto expedita illum doloremque neque. Quos ea quisquam sunt unde, pariatur facere commodi magnam consequuntur aliquam fugit, ducimus exercitationem dolore dolorem asperiores dicta dolores eius soluta, veritatis quis labore ab perspiciatis dolorum. Natus, eius odio reprehenderit, vero iusto asperiores beatae ducimus quos, mollitia dolor autem nihil est aliquid dolores minus blanditiis maxime recusandae? Soluta eveniet numquam atque maiores placeat molestias qui laboriosam vitae culpa libero quibusdam quam dolorem, velit illo optio ipsam error quae ad aperiam provident, expedita inventore, doloribus quas vero. Deleniti, ex unde laudantium, enim inventore mollitia quisquam similique, neque reprehenderit iusto perferendis officia eligendi iure.</p>
+						<br>
+						<p>Cheers! <br>
+						- <strong>Miles Potter</strong></p>
+						<br>
+						<p>
+						<address>
+			                <small>
+				                <strong>Outline, Inc.</strong><br>
+				                795 Folsom Ave, Suite 600<br>
+				                San Francisco, CA 94107<br>
+				                <abbr title="Phone">P:</abbr> (123) 456-7890
+			                </small>
+			            </address>
+						</p>
+					</div>
+					<hr>
+					<p class="mb20">Two attachment(s) available - <a href="#">Download all</a></p>
+					<div class="msg-attachments row">
+						<div class="col-md-3">
+							<div class="well well-sm">
+								<img masked-image src="assets/demo/stockphoto/blog_02.jpg" class="img-responsive">
+								<strong>catpic.jpg</strong>
+								<span class="block">700kb</span>
+								<ul class="list-inline">
+									<li><a href="#">Download</a></li>
+									<li><a href="#">View</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="well well-sm">
+								<img masked-image src="assets/demo/stockphoto/blog_06.jpg" class="img-responsive">
+								<strong>expenses.xlsx</strong>
+								<span class="block">600kb</span>
+								<ul class="list-inline">
+									<li><a href="#">Download</a></li>
+									<li><a href="#">View</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div> <!-- container-fluid -->

@@ -1,0 +1,461 @@
+// Topnav Header Styles
+// --------------------------------------------------------------------------
+
+
+/* Drop Downs */
+
+#topnav {
+    margin: 0;
+    border:none;
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.08);
+    &:extend(.clearfix all);
+
+    background: url("../img/md_bg2.png") center 50%;
+
+
+    // Logo
+    .navbar-brand {
+        background: url("") no-repeat top left; // Put your logo here
+        height: @navbar-height;
+        width: @navbar-brand-width;
+        @media (max-width: @screen-xs-max) { // reduce width of navbar-brand in small screen
+            width: 68px;
+        }
+        padding: 16px 0 !important;
+
+        font-size: 20px;
+        color: #FFFFFF;
+    }
+    //-- Logo Code: Start - remove/modify this as you see fit
+    &.navbar-default .navbar-brand, &.navbar-bluegraylight .navbar-brand, &.navbar-graylight .navbar-brand {background: url("../img/logo-dark.png") no-repeat left 0 center; } // dark logo
+    //-- Logo Code: End
+
+
+    // Our Dropdown Menus don't lose styles on small screens, so we apply them again
+    .dropdown-menu {
+        background-color: @dropdown-bg;
+        border: 0px solid @dropdown-fallback-border; // IE8 fallback
+        border: 1px solid @dropdown-border;
+        border-radius: @border-radius-base;
+        box-shadow: none;
+    }
+
+    //Keep topnav toolbar from collapsing even in small screens
+    .navbar-nav .open .dropdown-menu {position: absolute;}
+    .topnav-collapsed & .yamm .open .dropdown-menu {position: relative;}
+
+
+
+    // Trigger Styles
+    .logo-area {
+        display: block;
+        float: left;
+        &:extend(.clearfix all);
+
+        > a, > span, > div {
+            display: block;
+            float: left;
+        }
+
+        .toolbar-trigger a {
+            display: block;
+            padding: 0;
+            margin-right: 16px;
+            span.icon-bg {
+                display: block;
+                border-radius: 0;
+                height: 56px;
+                width: 56px;
+                padding: 0;
+                line-height: 56px;
+                font-size: 17px;
+                text-align: center;
+                border-right-style: solid;
+                border-right-width: 1px;
+                // border-color: @border-lighter;
+                i {
+                }
+            }
+        }
+
+        @media (min-width: @screen-sm-min) {
+            width: 256px;
+            height: 56px;
+            display: inline-block;
+        }
+    }
+
+    // Toolbar Icon
+    .toolbar-icon-bg {
+        > a:hover, > a:focus, > a.active {background-color: transparent;}
+        &.open > a {
+            background-color: transparent;
+            &:hover {background-color: transparent;}
+            span.icon-bg { &:hover {}}
+        }
+    }
+    .toolbar.pull-right .toolbar-icon-bg {
+        > a {
+            padding: 0;
+            span.icon-bg {
+                display: block;
+                border-radius: 0;
+                padding: 0;
+                line-height: 56px;
+                font-size: 17px;
+                text-align: center;
+                height: 56px;
+                width: 56px;
+                border-left-style: solid;
+                border-left-width: 1px;
+                // border-color: @border-lighter;
+                i {}
+            }
+        }
+        &:hover {
+            span.icon-bg {}
+        }
+    }
+
+    // UserInfo
+    .userinfo {
+        min-width: 200px;
+        li a {
+            &:extend(.clearfix all);
+            color: @gray-dark;
+            i {margin-right: 16px; color: @gray-light;}
+            .badge {position: static; margin-top: 2px;}
+            &:hover, &:focus {
+                color: @gray-darker;
+                i {color: @gray;}
+            }
+        }
+    }
+
+    // Stylings for small screens
+    .navbar-nav           {margin: 0;
+        &.toolbar {
+            >li {
+                float: left;
+                //margin-right: 8px;
+                >a {padding: 14px 16px; }
+                //&:last-child {margin-right: 0;}
+            }
+        }
+    }
+
+    // User Icon
+    a.username {
+        padding: 0 !important;
+        &:extend(.clearfix all);
+        img {
+            height: 56px;
+            width: 56px;
+            float: right;
+            border-radius: 50%;
+        }
+    }
+
+    //Badges
+    .nav .badge {
+        text-align: center;
+        text-shadow: none !important;
+
+        top: 10px;
+        right: 8px;
+        position: absolute;
+    }
+
+    // Toolbar Search
+    #toolbar-search {
+        display: none;
+
+        input {
+            border:none;
+            height: 32px;
+            padding-left: 40px;
+        }
+
+        .search {
+            margin: 10px;
+            font-size: 17px;
+            //color: @gray;
+        }
+
+        .remove {
+            right: 0;
+            top: 0;
+            margin: 10px;
+            font-size: 17px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &.active {
+            display: block !important;
+            right: 0;
+            left: 0;
+            top: 0;
+            position: absolute;
+            z-index: 999;
+            margin: 0;
+            border: none;
+            padding: 12px 6px;
+        }
+
+    }
+
+
+    // Topnav Dropdown
+    .topnav-dropdown-header, .topnav-dropdown-footer {
+        height: 32px;
+        line-height: 32px;
+        padding-left: 12px;
+        padding-right: 12px;
+        font-size: 12px;
+        color: @gray-50;
+    }
+    .topnav-dropdown-header {
+        border-bottom: 1px solid @border-lighter;
+        span {
+            color: @gray;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+    .topnav-dropdown-footer {
+        border-top: 1px solid @border-lighter;
+        a {
+            display: block;
+            text-align: center;
+        }
+    }
+
+
+    // Notifications
+    .notifications {
+        padding: 0;
+
+        @media (max-width: @screen-xs-max) { //re-arrange position in small screen
+            right: -48px;
+            &::before, &::after {right: 60px;}
+        }
+
+        .scroll-pane {
+            height: 290px;
+            width: 288px;
+        }
+        .notification-heading {
+            margin: 0;
+            font-size: @font-size-base;
+            font-weight: normal;
+            line-height: @line-height-base;
+            color: @gray-dark;
+        }
+        .notification-time {
+            font-size: @font-size-small;
+            line-height: @line-height-small;
+            color: @gray-light;
+        }
+        .media {
+            margin-top: 0;
+            border-bottom: 1px solid @gray-100;
+            &:last-child {border-bottom: none;}
+        }
+        .media a {
+            display: block;
+            padding: 16px;
+            // background-color: @gray-50;
+            border-radius: @border-radius-base;
+            &:hover {background-color: @gray-50;}
+        }
+        .media-list {
+            .media-left {padding-right: 8px;}
+        }
+
+        .notification-icon {
+            height: 32px;
+            width: 32px;
+            display: block;
+            background: @gray;
+            border-radius: 16px;
+            border-style: solid;
+            border-width: 1px;
+            background-color: transparent;
+
+            i {
+                display: block;
+                text-align: center;
+                line-height: 30px;
+                width: 30px;
+                //color: #fff;
+            }
+        }
+
+        .notification-success .notification-icon {color: @light-green-300;border-color: @light-green-300}
+        .notification-info    .notification-icon {color: @cyan-300;border-color: @cyan-300}
+        .notification-danger  .notification-icon {color: @red-300;border-color: @red-300}
+        .notification-warning .notification-icon {color: @amber-300;border-color: @amber-300}
+        .notification-primary .notification-icon {color: @light-blue-300;border-color: @light-blue-300}
+        .notification-inverse .notification-icon {color: @gray-300;border-color: @gray-300}
+        .notification-teal    .notification-icon {color: @teal-300;border-color: @teal-300}
+        .notification-indigo  .notification-icon {color: @indigo-300;border-color: @indigo-300}
+
+        .notification-message {
+            .avatar {
+                height: 32px;
+                width: 32px;
+            }
+        }
+    }
+
+
+    // Mega Menu
+
+    .yamm {
+        .navbar-nav > li > a {
+            padding-top: 18px;
+            padding-bottom: 18px;
+            border-left-style: solid;
+            border-left-width: 1px;
+            // border-color: @border-lighter;
+            &:hover, &:focus, &:active {background-color: transparent;}
+        }
+
+        .navbar-nav > li:last-child > a {
+            border-right-style: solid;
+            border-right-width: 1px;
+            // border-color: @border-lighter;
+        }
+
+        // Custom classes
+
+        .yamm-content {
+            padding: 0;
+            .yamm-col {
+                padding: 0 16px;
+            }
+            h2, h3, h4 {
+                padding: 0;
+                &.yamm-category {
+                    font-weight: 400;
+                    font-size: @font-size-base;
+                    text-transform: uppercase;
+                    color: @gray;
+                    margin: 16px 0;
+                }
+            }
+
+            ul {
+                li {
+                    color: @navbar-inverse-color;
+                    margin: 0 -16px;
+                    i {margin-right: 6px;}
+                    a {
+                        color: @navbar-inverse-link-color;
+                        display: block;
+                        padding: 10px 16px !important;
+                    }
+                    &:hover {
+                        background-color: @navbar-inverse-link-hover-bg;
+                        a {
+                            color: #fff;
+                            text-decoration: none;
+                        }
+                    }
+
+                    p {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+
+    }
+}
+
+
+
+
+/* Topnav Megamenu */
+
+// -- Top Mega Menu that folds in small screens with a fluid break point.  --//
+// As soon as the menu goes into two lines, js autoCollapse() function adds a class
+// to the body and the menu rearranges itself to collapse. Cool, eh?
+
+body.topnav-collapsed {
+    header.navbar {
+        .navbar-brand {width: 54px;}
+
+        .navbar-collapse {
+            width: auto;
+
+            padding-left: 0;
+            padding-right: 0;
+            width: 100%;
+            clear: both;
+
+            border-top-width: 1px;
+            border-top-style: solid;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+
+            &.collapse {
+                display: none !important;
+                &.in {
+                    display: block !important;
+                }
+            }
+
+            &.in {
+                overflow-y: auto !important;
+                overflow-x: hidden;
+            }
+
+            // Undo the collapse side padding for navbars with containers to ensure
+            // alignment of right-aligned contents.
+            .navbar-fixed-top &,
+            .navbar-static-top &,
+            .navbar-fixed-bottom & {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+
+            // Dropdown
+            .navbar-nav {margin: 0;}
+            .navbar-nav, .navbar-nav > li {float: none !important;}
+
+            .open .dropdown-menu {
+                position: static;
+                float: none;
+                width: auto !important;
+                margin-top: 0;
+                //background-color: transparent;
+                border: 0;
+                border-radius: 0;
+                box-shadow: none;
+                > li > a,
+                .dropdown-header {
+                    padding: 5px 15px 5px 25px;
+                }
+                > li > a {
+                    padding: 5px 20px !important;
+                    line-height: @line-height-computed;
+                    &:hover,
+                    &:focus {
+                        background-image: none;
+                    }
+                }
+            }
+        }
+    }
+
+    #topnav {
+        &.navbar-default .navbar-brand {background: url("../img/logo.png") no-repeat 0px; } //white small logo
+        .navbar-brand {background: url("../img/logo.png") no-repeat 0px; } //dark small logo
+    }
+}

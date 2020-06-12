@@ -1,0 +1,77 @@
+<form name="userForm" class="form-horizontal row-border">
+    <div class="modal-header">
+        <h4 class="modal-title">{{ title }}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Номер услуги</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" readonly="readonly" ng-model="data.user_service_id">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Услуга</label>
+            <div class="col-sm-8">
+                <services-list id="data.service_id" data="data.service" readonly></services-list>
+            </div>
+            <div class="col-sm-2">
+                <a ng-click="edit_service()" class="btn btn-default"><i class="ti ti-info"></i></a>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Статус</label>
+            <div class="col-sm-3">
+                <div class="btn-group" ng-if="data.status=='NOT PAID'">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">Не оплачена</button>
+                </div>
+                <div class="btn-group" ng-if="data.status=='INIT'">
+                    <button type="button" class="btn btn-basic dropdown-toggle" data-toggle="dropdown">Инициализация</button>
+                </div>
+                <div class="btn-group" ng-if="data.status=='PROGRESS'">
+                    <button ng-click="show_event(data)" type="button" class="btn btn-basic dropdown-toggle" data-toggle="dropdown">Обработка</button>
+                </div>
+                <div class="btn-group" ng-if="data.status=='ACTIVE'">
+                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Активен <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a ng-click="block(data)">Заблокировать</a></li>
+                    </ul>
+                </div>
+                <div class="btn-group" ng-if="data.status=='BLOCK'">
+                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Блокировка</button>
+                </div>
+                <div class="btn-group" ng-if="data.status=='ERROR'">
+                    <button ng-click="show_event(data)" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">Ошибка</button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Стоимость</label>
+            <div class="col-sm-3">
+                <input type="text" ng-model="data.withdraws.cost" class="form-control" readonly="readonly">
+            </div>
+            <label class="col-sm-2 control-label">Действует до</label>
+            <div class="col-sm-3">
+                <input type="text" ng-model="data.expired" class="form-control" readonly="readonly">
+            </div>
+            <div class="col-sm-2">
+                <a ng-click="withdraws(data.user_service_id)" class="btn btn-default"><i class="ti ti-info"></i></a>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Settings</label>
+            <div class="col-sm-8">
+                <input type="text" value="{{ data.settings }}" readonly="readonly" class="form-control">
+            </div>
+            <div class="col-sm-2">
+                <json-editor data="data.settings"></json-editor>
+            </div>
+        </div>
+
+    </div> <!-- modal-body -->
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="save()">Save</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        <button class="btn btn-danger pull-left" ng-show="1" ng-click="delete()">Delete</button>
+    </div>
+</form>
