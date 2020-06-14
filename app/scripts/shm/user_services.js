@@ -42,7 +42,7 @@ angular
 
     this.editor = function (title, row, size) {
         return $modal.open({
-            templateUrl: 'views/user_service_edit.html',
+            templateUrl: "views/shm/categories/" + row.category + ".html",
             controller: function ($scope, $modalInstance, $modal) {
                 $scope.title = title;
                 $scope.data = angular.copy(row);
@@ -102,12 +102,10 @@ angular
     $scope.maxDeepLevel = 2;
 
     $scope.columnDefs = [
-        {field: 'user_service_id', width: 120},
-        {field: 'name'},
         {
-            field: 'user_id',
-            width: 100,
-            filter: { term: $scope.user.user_id }
+            field: 'name',
+            cellTemplate: '<div class="ui-grid-cell-contents">[{{row.entity.user_service_id}}] {{row.entity.name}}</div>',
+            width: "50%",
         },
         {
             field: 'status',
@@ -132,8 +130,14 @@ angular
                 };
             },
         },
-        {field: 'expired'},
-        {field: 'withdraws.cost', displayName: 'Цена'},
+        {
+            field: 'withdraws.cost',
+            displayName: 'Стоимость',
+            width: 100,
+        },
+        {
+            field: 'expired',
+        },
     ];
 
     var save_service = function( row, save_data ) {
