@@ -7,7 +7,6 @@ angular
     'shm_user_services',
     'shm_user_services_select',
     'shm_pay_systems_select',
-    'shm_config',
     'shm',
     'shm_request',
     'shm_withdraws',
