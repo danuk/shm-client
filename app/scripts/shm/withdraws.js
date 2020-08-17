@@ -8,11 +8,7 @@ angular
     $scope.url = url;
 
     $scope.columnDefs = [
-        {field: 'withdraw_id', displayName: "id"},
-        {
-            field: 'user_id',
-            filter: { term: $scope.user.user_id },
-        },
+        {field: 'withdraw_id', displayName: "id", width: 100},
         {field: 'create_date', displayName: "Дата создания"},
         {field: 'withdraw_date', displayName: "Дата списания"},
         {field: 'total', displayName: "Итого"},
