@@ -151,12 +151,11 @@ angular.module('theme.core.main_controller', ['theme.core.services','ngCookies']
     $scope.isLoggedIn = false;
 
     $scope.logOut = function() {
-      $cookies.remove('session_id');
-      $scope.isLoggedIn = false;
-
-      shm_request('POST', 'user/logout.cgi');
-
-      $location.path('/');
+      shm_request('POST', 'user/logout.cgi').then( function(response) {
+          $scope.isLoggedIn = false;
+          $cookies.remove('session_id');
+          $location.path('/extras-login');
+      });
     };
 
     $rootScope.$on('http_401', function (e, data) {
