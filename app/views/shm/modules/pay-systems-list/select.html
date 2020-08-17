@@ -1,3 +1,5 @@
-<select class="form-control" ng-model="id" required>
-    <option value="1">Платеж</option>
+<select class="form-control" ng-model="data" required>
+    <option ng-value="item" ng-repeat="item in items">
+    {{ item.name }}
+    </option>
 </select>

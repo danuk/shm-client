@@ -4,28 +4,18 @@
     </div>
     <div class="modal-body">
         <div class="form-group">
-            <label class="col-sm-2 control-label">Пользователь</label>
-            <div class="col-sm-8">
-                <users-list id="data.user_id"></users-list>
+            <div class="col-sm-12">
+                <pay-systems-list data="data"></pay-systems-list>
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">Тип платежа</label>
             <div class="col-sm-8">
-                <pay-systems-list id="data.pay_system_id"></pay-systems-list>
+                <button class="btn btn-success" ng-click="pay()">Оплатить</button>
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-warning" ng-click="cancel()">Отмена</button>
             </div>
         </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Сумма</label>
-            <div class="col-sm-8">
-                <input type="number" step="0.01" ng-model="data.money"></input>
-            </div>
-        </div>
-
     </div> <!-- modal-body -->
 
-    <div class="modal-footer">
-        <button class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="save()">Save</button>
-        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-    </div>
 </form>
