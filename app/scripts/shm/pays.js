@@ -2,11 +2,11 @@ angular
   .module('shm_pays', [
   ])
   .service('shm_pays', [ '$q', '$modal', 'shm_request', function( $q, $modal, shm_request ) {
-    this.make_pay = function (title, row, size) {
+    this.make_pay = function () {
         return $modal.open({
             templateUrl: 'views/make_pay.html',
             controller: function ($scope, $modalInstance, $modal) {
-                $scope.title = title;
+                $scope.title = "Платежная система";
 
                 $scope.cancel = function () {
                     $modalInstance.dismiss('cancel');
@@ -29,7 +29,7 @@ angular
 
                 };
             },
-            size: size,
+            size: 'sm',
         });
     }
 
@@ -47,11 +47,7 @@ angular
     ];
 
     $scope.add = function() {
-        var row = {
-            user_id: $scope.user.user_id || null,
-        };
-
-        shm_pays.make_pay('Платежная система', row, 'sm').result.then(function(data){
+        shm_pays.make_pay().result.then(function(data){
         }, function(cancel) {
         });
     };
