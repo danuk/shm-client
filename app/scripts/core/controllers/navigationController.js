@@ -4,9 +4,15 @@ angular
     'use strict';
     $scope.menu = [
     {
+      label: 'Главная',
+      iconClasses: 'ti ti-home',
+      /*html: '<span class="badge badge-info">2</span>',*/
+      url: '#!/',
+    },
+    {
       label: 'Услуги',
       iconClasses: 'ti ti-menu-alt',
-      url: '#!/',
+      url: '#!/user_services',
     },
     {
       label: 'Расходы',

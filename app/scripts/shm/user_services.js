@@ -7,18 +7,13 @@ angular
             templateUrl: 'views/user_service_add.html',
             controller: function ($scope, $modalInstance, $modal) {
                 $scope.title = 'Создание услуги пользователя';
-                $scope.data = {
-                    user_id: "-1",
-                };
+                $scope.data = {};
                 $scope.service = {
                     service_id: "-1",
                 };
 
                 $scope.$watch('service', function(newValue, oldValue){
-                    $scope.data.service_id = newValue.service_id;
                     $scope.data.cost = newValue.cost;
-                    $scope.data.months = newValue.period_cost;
-                    $scope.data.settings = newValue.config;
                 });
 
                 $scope.cancel = function () {
@@ -26,7 +21,7 @@ angular
                 };
 
                 $scope.save = function () {
-                    shm_request('PUT_JSON', '/admin/create_user_service.cgi', $scope.data ).then(function(response) {
+                    shm_request('PUT_JSON', '/user/create_user_service.cgi', $scope.data ).then(function(response) {
                         $modalInstance.close( response.data );
                     });
                 };

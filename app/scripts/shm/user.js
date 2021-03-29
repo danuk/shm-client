@@ -2,23 +2,24 @@ angular
     .module('shm_user', [
 ])
 .controller('ShmUserController',
-    ['$scope','$location','$route','shm_request', function($scope, $location, $route, shm_request) {
+    ['$scope','$location','$route','shm_request','shm_pays', function($scope, $location, $route, shm_request, shm_pays) {
     'use strict';
 
-    if ( !$scope.user.user_id ) {
-        $location.path('/users');
-    } else {
-        shm_request('GET','/admin/user.cgi?user_id='+$scope.user.user_id ).then(function(response) {
-            $scope.data = response.data[0];
-        });
-    }
+    shm_request('GET','/user.cgi' ).then(function(response) {
+        $scope.data = response.data[0];
+    });
 
     $scope.save = function() {
-        console.warn( $scope.data );
-        shm_request('POST_JSON','/admin/user.cgi', $scope.data ).then(function() {
-            $location.path('/users');
+        shm_request('POST_JSON','user.cgi', $scope.data ).then(function() {
+            $location.path('/user');
         })
     }
+
+    $scope.pay = function() {
+        shm_pays.make_pay().result.then(function(data){
+        }, function(cancel) {
+        });
+    };
 
 }]);
 

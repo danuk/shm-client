@@ -4,6 +4,7 @@ angular
     'shm_table',
     'shm_table_tree',
     'shm_user',
+    'shm_services_select',
     'shm_user_services',
     'shm_user_services_select',
     'shm_pay_systems_select',
@@ -16,7 +17,7 @@ angular
     'use strict';
     $routeProvider
       .when('/', {
-        templateUrl: 'views/user_services.html',
+        templateUrl: 'views/user.html',
       })
       .when('/:templateFile', {
         templateUrl: function(param) {
@@ -24,7 +25,7 @@ angular
         }
       })
       .when('#', {
-        templateUrl: 'views/user_services.html',
+        templateUrl: 'views/user.html',
       })
       .otherwise({
         redirectTo: '/'
