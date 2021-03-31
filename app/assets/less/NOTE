@@ -1,0 +1,3 @@
+# Compile less to CSS
+lessc styles-alternative.less ../css/styles-alternative.css
+
