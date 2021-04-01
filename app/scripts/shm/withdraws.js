@@ -4,7 +4,7 @@ angular
   .controller('ShmWithdrawsController', ['$scope', '$modal', 'shm', 'shm_request', function($scope, $modal, shm, shm_request) {
     'use strict';
 
-    var url = 'admin/withdraw.cgi';
+    var url = 'v1/user/withdraws';
     $scope.url = url;
 
     $scope.columnDefs = [

@@ -10,7 +10,7 @@ angular.module('shm_services_select', [
         link: function ($scope, $element, $attrs) {
             $scope.readonly = 'readonly' in $attrs;
 
-            var request = 'admin/service.cgi';
+            var request = 'v1/services';
             var key_field = 'service_id';
 
             $scope.$watch('data', function(newValue, oldValue){
