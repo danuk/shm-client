@@ -15,6 +15,15 @@ angular
         })
     }
 
+    $scope.passwd = function () {
+        var new_password = prompt("Enter new password:");
+        if ( new_password ) {
+            shm_request('POST_JSON','v1/user/passwd', { password: new_password } ).then(function() {
+                $location.path('/user');
+            })
+        }
+    }
+
     $scope.pay = function() {
         shm_pays.make_pay().result.then(function(data){
         }, function(cancel) {

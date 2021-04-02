@@ -57,6 +57,7 @@
                     </div> <!-- modal-body -->
 
                     <div class="modal-footer">
+                        <button class="btn btn-warning pull-left" ng-disabled="userForm.$invalid" ng-click="passwd()">Сменить пароль</button>
                         <button class="btn btn-success" ng-disabled="userForm.$invalid" ng-click="save()">Save</button>
                     </div>
                 </form>
