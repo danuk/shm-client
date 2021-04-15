@@ -6,7 +6,7 @@ angular
     'use strict';
 
     shm_request('GET','v1/user' ).then(function(response) {
-        $scope.data = response.data[0];
+        $scope.data = response.data.data[0];
     });
 
     $scope.save = function() {

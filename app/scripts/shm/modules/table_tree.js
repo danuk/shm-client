@@ -10,9 +10,18 @@ angular
         'ui.grid.cellNav',
         'ui.grid.treeView',
     ])
-    .controller('ShmTableTreeController', ['$scope', '$filter', '$http', 'uiGridTreeViewConstants', 'shm_request', function(
-            $scope, $filter, $http, uiGridTreeViewConstants, shm_request) {
+    .controller('ShmTableTreeController',
+        ['$scope', '$filter', '$timeout', 'shm_request',
+            function($scope, $filter, $timeout, shm_request) {
         'use strict';
+
+        var paginationOptions = {
+            offset: 0,
+            limit: 25,
+        };
+
+        var filteringData = {};
+        var delay_request = false;
 
         $scope.gridScope = $scope;
 
@@ -35,6 +44,9 @@ angular
                     order: 210
                 }
             ],
+            useExternalPagination: true,
+            paginationPageSizes: [25, 50, 100],
+            paginationPageSize: paginationOptions.limit,
         };
 
         $scope.gridOptions.onRegisterApi = function( gridApi ) {
@@ -42,11 +54,10 @@ angular
             $scope.gridApi.treeBase.on.rowExpanded($scope, function(row) {
                 var index = $scope.gridOptions.data.indexOf(row.entity);
                 var treeLevel = 1;
-                console.log('ROW:', row );
                 if ( row.treeLevel ) { treeLevel = row.treeLevel + 1 };
                 if ( !row.treeNode.children.length ) {
                     shm_request('GET','/'+$scope.url, { parent: row.entity[$scope.parent_key_id] } ).then(function(response) {
-                        var data = response.data;
+                        var data = response.data.data;
                         data.forEach(function(childRow) {
                             if ( $scope.maxDeepLevel > treeLevel ) { childRow.$$treeLevel = treeLevel };
                             $scope.gridOptions.data.splice(++index, 0, childRow);
@@ -55,15 +66,59 @@ angular
                     })
                 }
             });
-        };
 
+            $scope.gridApi.core.on.filterChanged($scope, function() {
+                var grid = this.grid;
+                if ( !delay_request ) {
+                    delay_request = true;
+                    $timeout(function() {
+                        filteringData = {};
+                        angular.forEach( grid.columns, function( col ) {
+                            if ( col.filters[0].term ) {
+                                filteringData[col.field] = col.filters[0].term;
+                            }
+                        });
+                        delay_request = false;
+                        $scope.load_data($scope.url);
+                    },1000);
+                }
+            });
+
+            $scope.gridApi.core.on.sortChanged($scope, function(grid, sortColumns) {
+                if (sortColumns.length == 0) {
+                    delete paginationOptions.sort_field;
+                    delete paginationOptions.sort_direction;
+                } else {
+                    paginationOptions.sort_field = sortColumns[0].field;
+                    paginationOptions.sort_direction = sortColumns[0].sort.direction;
+                }
+                $scope.load_data($scope.url);
+            });
+
+            gridApi.pagination.on.paginationChanged($scope, function (pageNum, pageSize) {
+                paginationOptions.offset = ( pageNum -1 ) * pageSize ;
+                paginationOptions.limit = pageSize;
+                $scope.load_data($scope.url);
+            });
+        };
         if ( $scope.row_dbl_click ) {
             $scope.gridOptions.rowTemplate = '<div ng-dblclick="grid.appScope.row_dbl_click(row.entity)" ng-repeat="(colRenderIndex, col) in colContainer.renderedColumns" class="ui-grid-cell" ng-class="{ \'ui-grid-row-header-cell\': col.isRowHeader }" ui-grid-cell></div>';
         }
 
         $scope.load_data = function(url) {
-            shm_request('GET','/'+url).then(function(response) {
-                var largeLoad = response.data;
+            var args = angular.merge(
+                paginationOptions,
+                {
+                    filter: angular.toJson( filteringData ),
+                },
+            );
+
+            var str_args = Object.keys(args).map(function(key) {
+                return key + '=' + args[key];
+            }).join('&');
+
+            shm_request('GET','/'+url+'?'+str_args).then(function(response) {
+                var largeLoad = response.data.data;
 
                 if ( $scope.columnDefs ) {
                     var row = largeLoad[0];
@@ -83,6 +138,7 @@ angular
                 })
 
                 $scope.setPagingData(largeLoad, $scope.pagingOptions.currentPage, $scope.pagingOptions.pageSize );
+                $scope.gridOptions.totalItems = response.data.items;
             })
         }
 
@@ -103,7 +159,6 @@ angular
                 $scope.$apply();
             }
         };
-
         $scope.getPagedDataAsync = function(url,pageSize, page, searchText) {
             setTimeout(function() {
                 var data;
@@ -132,7 +187,6 @@ angular
                 $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, $scope.filterOptions.filterText);
             }
         }, true);
-
         $scope.$watch('filterOptions', function(newVal, oldVal) {
             if (newVal !== oldVal) {
                 $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, $scope.filterOptions.filterText);
@@ -142,7 +196,7 @@ angular
     .directive('shmTableTree', function() {
         return {
             controller: 'ShmTableTreeController',
-            template: '<div style="height: 512px;" ui-grid="gridOptions" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize ui-grid-move-columns ui-grid-pinning ui-grid-tree-view></div>',
+            template: '<div style="height: 512px;" ui-grid="gridOptions" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize ui-grid-move-columns ui-grid-pinning ui-grid-tree-view ui-grid-pagination></div>',
         }
     });
 
