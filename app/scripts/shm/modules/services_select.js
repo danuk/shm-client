@@ -23,7 +23,7 @@ angular.module('shm_services_select', [
             }
 
             shm_request('GET', request).then(function(response) {
-                var rows = response.data;
+                var rows = response.data.data;
                 if (!rows) return;
                 $scope.items = rows;
 
