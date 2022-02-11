@@ -37,7 +37,7 @@ angular
   .controller('ShmPaysController', ['$scope', '$modal', 'shm', 'shm_request','shm_pays', function($scope, $modal, shm, shm_request, shm_pays ) {
     'use strict';
 
-    var url = 'v1/user/pays';
+    var url = 'v1/user/pay';
     $scope.url = url;
 
     $scope.columnDefs = [

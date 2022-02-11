@@ -91,8 +91,8 @@ angular
   .controller('ShmUserServicesController', ['$scope', '$modal', 'shm', 'shm_request', 'shm_user_services', function($scope, $modal, shm, shm_request, shm_user_services ) {
     'use strict';
 
-    var url = 'v1/user/services';
-    $scope.url = 'v1/user/services';
+    var url = 'v1/user/service';
+    $scope.url = 'v1/user/service';
     $scope.parent_key_id = 'user_service_id';
     $scope.maxDeepLevel = 2;
 
