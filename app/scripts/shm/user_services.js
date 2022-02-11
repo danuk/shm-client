@@ -99,11 +99,13 @@ angular
     $scope.columnDefs = [
         {
             field: 'name',
+            displayName: 'Услуга',
             cellTemplate: '<div class="ui-grid-cell-contents">[{{row.entity.user_service_id}}] {{row.entity.name}}</div>',
             width: "50%",
         },
         {
             field: 'status',
+            displayName: 'Статус',
             width: 100,
             cellClass: function(grid, row, col, rowRenderIndex, colRenderIndex) {
                 switch(grid.getCellValue(row,col)) {
@@ -132,6 +134,7 @@ angular
         },
         {
             field: 'expired',
+            displayName: 'Истекает',
         },
     ];
 
