@@ -179,6 +179,27 @@ angular.module('theme.core.main_controller', ['theme.core.services','ngCookies']
       });
 	};
 
+    $scope.userRegister = function(email, password, confirmPassword) {
+      if ( password != confirmPassword ) {
+        alert( "Ошибка: Пароли не совпадают!" );
+        return;
+      }
+      shm_request('PUT', '/v1/user', { login: email, password: password } ).then( function(response) {
+        $scope.logIn( email, password );
+      }, function(error) {
+        alert( error.data.error );
+      });
+    };
+
+    $scope.passwordReset = function(email) {
+      shm_request('POST', '/v1/user/passwd/reset', { email: email } ).then( function(response) {
+        alert( "Письмо с новым паролем отправлено. Проверьте свою почту." );
+        $location.path('/');
+      }, function(error) {
+        alert( error.data.error );
+      });
+    };
+
     $scope.nop = function() {
         shm_request('POST', 'nop.cgi' );
     }
@@ -193,10 +214,10 @@ angular.module('theme.core.main_controller', ['theme.core.services','ngCookies']
     };
 
     $scope.$on('$routeChangeStart', function() {
-      if ( !$scope.sessionCheck() ) return $location.path( '/extras-login' );
+      if ($location.path() === '/extras-registration') return $location.path();
+      if ($location.path() === '/extras-forgotpassword') return $location.path();
 
-      if ($location.path() === '/extras-login') return $location.path('/');
-      if ($location.path() === '') return $location.path('/');
+      if ( !$scope.sessionCheck() ) return $location.path( '/extras-login' );
 
       progressLoader.start();
       progressLoader.set(50);
