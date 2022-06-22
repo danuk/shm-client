@@ -61,28 +61,6 @@ angular
                     });
                 };
 
-                var update_status = function(data) {
-                    shm_request('GET','/admin/u_s_object.cgi?user_id='+data.user_id+'&id='+data.user_service_id).then(function(response) {
-                        data.status = response.data[0].status;
-                        row.status = response.data[0].status;
-                    });
-                }
-
-                $scope.show_event = function(data) {
-                    shm_request('GET','/admin/u_s_object.cgi?user_id='+data.user_id+'&id='+data.user_service_id+'&method=spool_commands').then(function(response) {
-                        var spool = response.data;
-                        if ( spool.length ) {
-                            shm_spool.edit( spool[0] ).result.then(function(){
-                                update_status(data);
-                            }, function(resp) {
-                            })
-                        }
-                        else {
-                            update_status(data);
-                        }
-                    })
-                };
-
             },
             size: size,
         });
