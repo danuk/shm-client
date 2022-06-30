@@ -170,7 +170,7 @@ angular.module('theme.core.main_controller', ['theme.core.services','ngCookies']
             var $session_id = response.data.session_id;
             $cookies.put('session_id', $session_id);
             $scope.isLoggedIn = true;
-            $location.path('/');
+            $location.path('/user_services');
         }
         progressLoader.end();
       }, function(error) {
