@@ -4,25 +4,21 @@ angular
   .service('shm_user_services', [ '$q', '$modal', 'shm_request', function( $q, $modal, shm_request ) {
     this.add = function(data) {
         return $modal.open({
-            templateUrl: 'views/user_service_add.html',
+            templateUrl: 'views/user_service_order.html',
             controller: function ($scope, $modalInstance, $modal) {
-                $scope.title = 'Создание услуги пользователя';
+                $scope.title = 'Регистрация новой услуги';
                 $scope.data = {};
                 $scope.service = {
                     service_id: "-1",
                 };
 
-                $scope.$watch('service', function(newValue, oldValue){
-                    $scope.data.cost = newValue.cost;
-                });
-
                 $scope.cancel = function () {
                     $modalInstance.dismiss('cancel');
                 };
 
-                $scope.save = function () {
-                    shm_request('PUT_JSON', '/user/create_user_service.cgi', $scope.data ).then(function(response) {
-                        $modalInstance.close( response.data );
+                $scope.reg = function (service) {
+                    shm_request('PUT_JSON', 'v1/service/order', service ).then(function(response) {
+                        $modalInstance.close( response.data.data[0] );
                     });
                 };
 

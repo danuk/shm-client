@@ -1,0 +1,32 @@
+<form name="userForm" class="form-horizontal row-border">
+    <div class="modal-header">
+        <h4 class="modal-title">{{ title }}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Услуга</label>
+            <div class="col-sm-9">
+                <services-order-list data="service" required></services-order-list>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Описание</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" ng-model="service.descr" readonly="readonly"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Цена за период</label>
+            <div class="col-sm-3">
+                <input type="number" ng-model="service.cost" class="form-control" readonly="readonly">
+            </div>
+        </div>
+
+    </div> <!-- modal-body -->
+
+    <div class="modal-footer">
+        <button class="btn btn-warning" ng-click="cancel()">Отмена</button>
+        <button class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="reg(service)">Заказать</button>
+    </div>
+</form>
