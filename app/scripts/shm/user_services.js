@@ -132,11 +132,15 @@ angular
             save_service( row, data );
         }, function(resp) {
             if ( resp === 'delete' ) {
-                shm_request('DELETE','/'+url+'?user_id='+row.user_id+'&user_service_id='+row.user_service_id ).then(function() {
-                    $scope.gridOptions.data.splice(
-                        $scope.gridOptions.data.indexOf( row ),
-                        1
-                    );
+                shm_request('DELETE', url, { user_id: row.user_id, id: row.user_service_id } ).then(function(response) {
+                    if (response.data.data.length) {
+                        angular.extend( row, response.data.data[0] );
+                    } else {
+                        $scope.gridOptions.data.splice(
+                            $scope.gridOptions.data.indexOf( row ),
+                            1
+                        );
+                    }
                 })
             }
         });

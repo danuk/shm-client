@@ -10,7 +10,7 @@ angular
         withCredentials: true,
       };
       if ( $data ) {
-        if ( $method == 'GET' ) {
+        if ( $method == 'GET' || $method == 'DELETE' ) {
             $args['params'] = $data;
         } else {
             var args = $method.split('_');
