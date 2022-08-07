@@ -107,7 +107,7 @@ angular
             width: 100,
         },
         {
-            field: 'expired',
+            field: 'expire',
             displayName: 'Истекает',
         },
     ];
