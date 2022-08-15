@@ -48,6 +48,13 @@ angular
                 $scope.title = title;
                 $scope.data = angular.copy(row);
 
+                if (!row.services.config) row.services.config = {};
+                $scope.data.btn_block = ( row.status == 'ACTIVE' && !row.services.config.allow_delete_active ) ? 1 : 0;
+                $scope.data.btn_delete = (
+                    row.status == 'BLOCKED' ||
+                    ( row.status == 'ACTIVE' && row.services.config.allow_delete_active )
+                ) ? 1 : 0;
+
                 $scope.cancel = function () {
                     $modalInstance.dismiss('cancel');
                 };
@@ -56,17 +63,13 @@ angular
                     $modalInstance.close( $scope.data );
                 };
 
+                $scope.block = function(data) {
+                    $modalInstance.dismiss('block');
+                };
+
                 $scope.delete = function () {
                     $modalInstance.dismiss('delete');
                 };
-
-                $scope.block = function(data) {
-                    shm_request('GET','/admin/user_service_stop.cgi?user_id='+data.user_id+'&user_service_id='+data.user_service_id).then(function(response) {
-                        angular.extend( row, response.data );
-                        angular.extend( data, response.data );
-                    });
-                };
-
             },
             size: size,
         });
@@ -124,7 +127,7 @@ angular
 
     var save_service = function( row, save_data ) {
         delete save_data.status; // protect for change status
-        shm_request('POST_JSON','/'+url, save_data ).then(function(response) {
+        shm_request('POST_JSON', url, save_data ).then(function(response) {
             angular.extend( row, response.data );
         });
     };
@@ -141,6 +144,22 @@ angular
         shm_user_services.editor('Редактирование услуги', row, 'lg').result.then(function(data){
             save_service( row, data );
         }, function(resp) {
+            if ( resp === 'block' ) {
+                shm_request('POST_JSON','v1/user/service/stop', { user_id: row.user_id, id: row.user_service_id } ).then(function(response) {
+                    if (response.data.data.length) {
+                        angular.extend( row, response.data.data[0] );
+                    } else {
+                        $scope.gridOptions.data.splice(
+                            $scope.gridOptions.data.indexOf( row ),
+                            1
+                        );
+                    }
+                }, function( response ) {
+                    if ( response.data && response.data.error ) {
+                        alert( "Error: " + response.data.error );
+                    }
+                })
+            }
             if ( resp === 'delete' ) {
                 shm_request('DELETE', url, { user_id: row.user_id, id: row.user_service_id } ).then(function(response) {
                     if (response.data.data.length) {
@@ -150,6 +169,10 @@ angular
                             $scope.gridOptions.data.indexOf( row ),
                             1
                         );
+                    }
+                }, function( response ) {
+                    if ( response.data && response.data.error ) {
+                        alert( "Error: " + response.data.error );
                     }
                 })
             }
