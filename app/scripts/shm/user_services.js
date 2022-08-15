@@ -31,9 +31,19 @@ angular
         });
     };
 
+    var getTemplateUrl = function(category) {
+        var http = new XMLHttpRequest();
+        var base_url = 'views/shm/categories/';
+        http.open('HEAD', base_url + category + '.html', false);
+        http.send();
+        return (http.status !== 404) ? base_url + category + '.html' : base_url + 'default.html';
+    };
+
     this.editor = function (title, row, size) {
         return $modal.open({
-            templateUrl: "views/shm/categories/" + row.category + ".html",
+            templateUrl: function (rp) {
+                return getTemplateUrl(row.category);
+            },
             controller: function ($scope, $modalInstance, $modal) {
                 $scope.title = title;
                 $scope.data = angular.copy(row);
