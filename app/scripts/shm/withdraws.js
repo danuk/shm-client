@@ -8,10 +8,9 @@ angular
     $scope.url = url;
 
     $scope.columnDefs = [
-        {field: 'withdraw_date', displayName: "Дата списания", width: "200"},
-        {field: 'name', displayName: "Название"},
+        {field: 'withdraw_date', displayName: "Дата списания", width: "160"},
+        {field: 'name', displayName: "Название", width: "300"},
         {field: 'cost', displayName: "Цена", width: "100"},
-        {field: 'qnt', displayName: "Кол-во", width: "100"},
         {field: 'months', displayName: "Период", width: "100"},
         {field: 'total', displayName: "Итого", width: "100"},
     ];

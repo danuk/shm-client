@@ -41,7 +41,6 @@ angular
     $scope.url = url;
 
     $scope.columnDefs = [
-        {field: 'id', displayName: "id", width: 100},
         {field: 'date', displayName: "Дата"},
         {field: 'money', displayName: "Сумма"},
     ];

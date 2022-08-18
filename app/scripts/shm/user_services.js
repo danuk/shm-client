@@ -145,7 +145,7 @@ angular
             save_service( row, data );
         }, function(resp) {
             if ( resp === 'block' ) {
-                shm_request('POST_JSON','v1/user/service/stop', { user_id: row.user_id, id: row.user_service_id } ).then(function(response) {
+                shm_request('POST_JSON','v1/user/service/stop', { user_id: row.user_id, user_service_id: row.user_service_id } ).then(function(response) {
                     if (response.data.data.length) {
                         angular.extend( row, response.data.data[0] );
                     } else {
@@ -161,7 +161,7 @@ angular
                 })
             }
             if ( resp === 'delete' ) {
-                shm_request('DELETE', url, { user_id: row.user_id, id: row.user_service_id } ).then(function(response) {
+                shm_request('DELETE', url, { user_id: row.user_id, user_service_id: row.user_service_id } ).then(function(response) {
                     if (response.data.data.length) {
                         angular.extend( row, response.data.data[0] );
                     } else {
