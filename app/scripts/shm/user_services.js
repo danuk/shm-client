@@ -21,11 +21,6 @@ angular
                         $modalInstance.close( response.data.data[0] );
                     });
                 };
-
-                $scope.delete = function () {
-                    $modalInstance.dismiss('delete');
-                };
-
             },
             size: 'lg',
         });
@@ -64,7 +59,9 @@ angular
                 };
 
                 $scope.delete = function () {
-                    $modalInstance.dismiss('delete');
+                    if (confirm("Удалить услугу?")) {
+                        $modalInstance.dismiss('delete');
+                    }
                 };
             },
             size: size,
