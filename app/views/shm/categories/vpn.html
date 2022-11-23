@@ -12,7 +12,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">Статус</label>
             <div class="col-sm-3">
-                <input type="text" ng-model="data.status" class="form-control" readonly="readonly">
+                <input type="text" ng-model="row.status" class="form-control" readonly="readonly">
             </div>
         </div>
         <div class="form-group">
@@ -25,7 +25,7 @@
                 <input type="text" ng-model="data.expire" class="form-control" readonly="readonly">
             </div>
         </div>
-        <div class="form-group" ng-if="data.status=='ACTIVE'">
+        <div class="form-group" ng-if="row.status=='ACTIVE'">
             <label class="col-sm-2 control-label">VPN</label>
             <div class="col-sm-9">
                 <a class="btn btn-success" target="_blank" href="/shm/v1/storage/manage/vpn{{ data.user_service_id }}?format=qrcode">QR code</a>
@@ -38,6 +38,7 @@
 
     <div class="modal-footer">
         <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-        <button class="btn btn-danger pull-left" ng-if="data.btn_delete" ng-click="delete()">Delete</button>
+        <button class="btn btn-danger pull-left" ng-if="row.status=='BLOCK' || row.status=='ACTIVE'" ng-click="delete()">Удалить</b
+utton>
     </div>
 </form>

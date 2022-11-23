@@ -12,7 +12,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">Статус</label>
             <div class="col-sm-3">
-                <input type="text" ng-model="data.status" class="form-control" readonly="readonly">
+                <input type="text" ng-model="row.status" class="form-control" readonly="readonly">
             </div>
         </div>
         <div class="form-group">
@@ -30,6 +30,7 @@
 
     <div class="modal-footer">
         <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-        <button class="btn btn-danger pull-left" ng-show="1" ng-click="delete()">Delete</button>
+        <button class="btn btn-danger pull-left" ng-if="row.status=='BLOCK' || row.status=='ACTIVE'" ng-click="delete()">Удалить</b
+utton>
     </div>
 </form>

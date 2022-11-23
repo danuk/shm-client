@@ -11,8 +11,8 @@ angular
         'ui.grid.treeView',
     ])
     .controller('ShmTableTreeController',
-        ['$scope', '$filter', '$timeout', 'shm_request',
-            function($scope, $filter, $timeout, shm_request) {
+        ['$scope', '$filter', '$timeout', '$interval', 'shm_request', 'uiGridConstants',
+            function($scope, $filter, $timeout, $interval, shm_request, uiGridConstants) {
         'use strict';
 
         var paginationOptions = {
@@ -186,6 +186,35 @@ angular
         //$scope.getPagedDataAsync($scope.url, $scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
         $scope.load_data($scope.url);
 
+        // Auto refresh data
+        var timerId = $interval(function() {
+            var tree_by_usi = {};
+            $scope.gridOptions.data.forEach(function(item) {
+                tree_by_usi[ item.user_service_id ] = item;
+            });
+
+            var args = angular.merge(
+                paginationOptions,
+                {
+                    filter: angular.toJson( filteringData ),
+                    parent: null,
+                },
+            );
+            shm_request('GET', $scope.url, args).then(function(response) {
+                var largeLoad = response.data.data;
+
+                largeLoad.forEach(function(item) {
+                    if ( tree_by_usi[ item.user_service_id ] ) {
+                        angular.merge( tree_by_usi[ item.user_service_id ], item );
+                    }
+                })
+            });
+        }, 3000);
+
+        $scope.$on( "$destroy", function() {
+            if ( timerId ) { $interval.cancel( timerId ) };
+        });
+
         $scope.$watch('pagingOptions', function(newVal, oldVal) {
             if (newVal !== oldVal && newVal.currentPage !== oldVal.currentPage) {
                 $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, $scope.filterOptions.filterText);
@@ -194,6 +223,11 @@ angular
         $scope.$watch('filterOptions', function(newVal, oldVal) {
             if (newVal !== oldVal) {
                 $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, $scope.filterOptions.filterText);
+            }
+        }, true);
+        $scope.$watch('gridOptions', function(newVal, oldVal) {
+            if (newVal !== oldVal) {
+                $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.EDIT);
             }
         }, true);
     }])

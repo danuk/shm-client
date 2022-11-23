@@ -41,10 +41,10 @@ angular
             },
             controller: function ($scope, $modalInstance, $modal) {
                 $scope.title = title;
+                $scope.row = row;
                 $scope.data = angular.copy(row);
 
                 if (!row.services.config) row.services.config = {};
-                $scope.data.btn_delete = ( row.status == 'BLOCK' || row.status == 'ACTIVE' ) ? 1 : 0;
 
                 $scope.cancel = function () {
                     $modalInstance.dismiss('cancel');
