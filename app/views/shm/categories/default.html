@@ -29,6 +29,6 @@
 
     <div class="modal-footer">
         <button class="btn btn-warning" ng-click="cancel()">Закрыть</button>
-        <button class="btn btn-danger pull-left" ng-if="row.status=='BLOCK' || row.status=='ACTIVE'" ng-click="delete()">Удалить</button>
+        <button class="btn btn-danger pull-left" ng-if="row.status=='BLOCK' || row.status=='ACTIVE' || row.status=='NOT PAID'" ng-click="delete()">Удалить</button>
     </div>
 </form>
