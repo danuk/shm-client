@@ -7,5 +7,5 @@ ENTRYPOINT ["/entry.sh"]
 
 COPY nginx/default.conf /etc/nginx/conf.d/
 
-COPY app/ /var/www
+COPY app /app
 
