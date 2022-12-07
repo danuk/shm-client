@@ -37,7 +37,9 @@ angular
     this.editor = function (title, row, size) {
         return $modal.open({
             templateUrl: function (rp) {
-                return getTemplateUrl(row.category);
+                var category = row.category;
+                category = category.replace(/-.*/,'');
+                return getTemplateUrl(category);
             },
             controller: function ($scope, $modalInstance, $modal) {
                 $scope.title = title;
