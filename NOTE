@@ -1,6 +1,0 @@
-docker build . -t danuk/shm-client:latest
-
-docker run --name shm-client -d -p 8082:80 -e 'SHM_URL=http://cli.local' --rm danuk/shm-client:latest
-
-curl: http://127.0.0.1:8082
-
