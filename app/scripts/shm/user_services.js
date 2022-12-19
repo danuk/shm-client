@@ -17,6 +17,7 @@ angular
                 };
 
                 $scope.reg = function (service) {
+                    service.months = service.period_cost || 1;
                     shm_request('PUT_JSON', 'v1/service/order', service ).then(function(response) {
                         $modalInstance.close( response.data.data[0] );
                     });
