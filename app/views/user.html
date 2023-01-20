@@ -13,8 +13,11 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Договор</label>
-                            <div class="col-sm-9">
+                            <div class="col-sm-3">
                                 <input type="text" class="form-control" readonly="readonly" ng-model="data.user_id">
+                            </div>
+                            <div class="col-sm-1">
+                                <button class="btn btn-link" ng-click="partnerUrlToClipboard()">Скопировать партнерскую ссылку</button>
                             </div>
                         </div>
                         <div class="form-group">

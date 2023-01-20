@@ -9,6 +9,10 @@ angular
         $scope.data = response.data.data[0];
     });
 
+    $scope.partnerUrlToClipboard = function(string) {
+        navigator.clipboard.writeText( $location.absUrl() + '?partner_id=' + $scope.data.user_id );
+    }
+
     $scope.save = function() {
         shm_request('POST_JSON','v1/user', $scope.data ).then(function() {
             $location.path('/user');

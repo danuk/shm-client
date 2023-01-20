@@ -214,6 +214,11 @@ angular.module('theme.core.main_controller', ['theme.core.services','ngCookies']
     };
 
     $scope.$on('$routeChangeStart', function() {
+      var args = $location.search();
+      if ( args['partner_id'] ) {
+          $cookies.put('partner_id', args['partner_id']);
+      }
+
       if ($location.path() === '/extras-registration') return $location.path();
       if ($location.path() === '/extras-forgotpassword') return $location.path();
 
