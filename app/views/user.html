@@ -22,8 +22,13 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Логин</label>
-                            <div class="col-sm-9">
+                            <div class="col-sm-3">
                                 <input type="text" class="form-control" readonly="readonly" ng-model="data.login">
+                            </div>
+                            <div class="col-sm-1"></div>
+                            <label class="col-sm-2 control-label">Telegram логин</label>
+                            <div class="col-sm-3">
+                                <input type="text" ng-model="data.settings.telegram.login" class="form-control">
                             </div>
                         </div>
                         <div class="form-group" ng-show="data.full_name">
@@ -61,6 +66,7 @@
 
                     <div class="modal-footer">
                         <button class="btn btn-warning pull-left" ng-disabled="userForm.$invalid" ng-click="passwd()">Сменить пароль</button>
+                        <button class="btn btn-success" ng-disabled="userForm.$invalid" ng-click="save()">Save</button>
                     </div>
                 </form>
 

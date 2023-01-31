@@ -14,7 +14,8 @@ angular
     }
 
     $scope.save = function() {
-        shm_request('POST_JSON','v1/user', $scope.data ).then(function() {
+        shm_request('POST_JSON','v1/user', $scope.data ).then(function(response) {
+            $scope.data = response.data.data[0];
             $location.path('/user');
         })
     }
