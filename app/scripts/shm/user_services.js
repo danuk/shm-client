@@ -9,7 +9,7 @@ angular
                 $scope.title = 'Регистрация новой услуги';
                 $scope.data = {};
                 $scope.service = {
-                    service_id: "-1",
+                    service_id: "",
                 };
 
                 $scope.cancel = function () {
