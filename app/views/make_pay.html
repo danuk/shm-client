@@ -9,8 +9,26 @@
             </div>
         </div>
         <div class="form-group">
+            <div class="col-sm-2 control-label">
+                Сумма:
+            </div>
+            <div class="col-sm-10">
+                <input
+                        type="number"
+                        step="0.01"
+                        min="1"
+                        class="form-control"
+                        placeholder="введите сумму к оплате"
+                        inputmode="numeric" \
+                        pattern="\d*"
+                        required
+                        ng-model="data.amount"
+                />
+            </div>
+        </div>
+        <div class="form-group">
             <div class="col-sm-8">
-                <button class="btn btn-success" ng-click="pay()">Оплатить</button>
+                <button class="btn btn-success" ng-disabled="userForm.$invalid" ng-click="pay()">Оплатить</button>
             </div>
             <div class="col-sm-4">
                 <button class="btn btn-warning" ng-click="cancel()">Отмена</button>

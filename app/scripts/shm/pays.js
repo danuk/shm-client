@@ -21,12 +21,8 @@ angular
                 };
 
                 $scope.pay = function() {
-                    $modalInstance.dismiss('cancel');
-
-                    return $modal.open({
-                        template: $scope.data.template,
-                    });
-
+                    window.open( $scope.data.shm_url + $scope.data.amount );
+                    $modalInstance.close( $scope.data );
                 };
             },
             size: 'sm',

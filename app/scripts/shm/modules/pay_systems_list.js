@@ -7,17 +7,14 @@ angular.module('shm_pay_systems_select', [
             data: '=?data',
         },
         link: function ($scope, $element, $attrs) {
-            var request = 'user/pay_systems.cgi';
+            var request = 'v1/user/pay/paysystems';
 
             shm_request('GET', request).then(function(response) {
-                var data = response.data;
-
-                console.log( data );
-
+                var data = response.data.data;
                 if (!data) return;
+
                 $scope.items = data;
                 $scope.data = data[0];
-
             });
         },
         templateUrl: "views/shm/modules/pay-systems-list/select.html"
