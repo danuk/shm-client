@@ -115,17 +115,6 @@
 
 			<a class="navbar-brand" href="#/">SHM</a>
 
-			<div class="toolbar-icon-bg hidden-xs" id="toolbar-search" ng-class="{
-			  active: getLayoutOption('showSmallSearchBar')
-			}">
-		        <div class="input-group">
-	            	<span class="input-group-btn"><button class="btn" type="button"><i class="ti ti-search"></i></button></span>
-					<input type="text" class="form-control" placeholder="Search...">
-					<span class="input-group-btn">
-						<button class="btn" type="button" ng-click="toggleSearchBar($event)"><i class="ti ti-close"></i></button>
-					</span>
-				</div>
-		    </div>
 		</div>
 
 		<div class="yamm navbar-left navbar-collapse collapse in">
@@ -152,21 +141,6 @@
 
 		<ul class="nav navbar-nav pull-right toolbar">
 
-			<li class="dropdown toolbar-icon-bg" autocollapse>
-				<a id="navbar-links-toggle" data-toggle="collapse" data-target="header>.navbar-collapse">
-					<span class="icon-bg">
-						<i class="ti ti-more"></i>
-					</span>
-				</a>
-			</li>
-
-			<li class="toolbar-icon-bg visible-xs-block">
-				<a href="" ng-click="toggleSearchBar($event)"><span class="icon-bg"><i class="ti ti-search"></i></span></a>
-			</li>
-
-			<li class="toolbar-icon-bg hidden-xs">
-	            <a href="" ng-click="toggleSearchBar($event)"><span class="icon-bg"><i class="ti ti-search"></i></span></i></a>
-	        </li>
 
 	        <li class="toolbar-icon-bg hidden-xs" toggle-fullscreen>
 	            <a href="" class="toggle-fullscreen"><span class="icon-bg"><i class="ti ti-fullscreen"></i></span></i></a>
