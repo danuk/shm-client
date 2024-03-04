@@ -15,6 +15,11 @@ angular
             function($scope, $filter, $timeout, $interval, shm_request, uiGridConstants) {
         'use strict';
 
+        window.onresize = function(event) {
+            $scope.shmTableHeight = window.innerHeight - 250;
+        };
+        window.onresize();
+
         var paginationOptions = {
             offset: 0,
             limit: 25,
@@ -234,7 +239,7 @@ angular
     .directive('shmTableTree', function() {
         return {
             controller: 'ShmTableTreeController',
-            template: '<div style="height: 512px;" ui-grid="gridOptions" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize ui-grid-move-columns ui-grid-pinning ui-grid-tree-view ui-grid-pagination></div>',
+            template: '<div ng-style="{height: shmTableHeight + \'px\'}" ui-grid="gridOptions" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize ui-grid-move-columns ui-grid-pinning ui-grid-tree-view ui-grid-pagination></div>',
         }
     });
 
