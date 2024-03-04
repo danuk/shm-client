@@ -212,20 +212,20 @@
 						</div>
 					</div>
 				</div> <!-- #sidebar-->
+                <footer role="contentinfo" ng-show="!layoutLoading" ng-cloak>
+                    <div class="clearfix">
+                        <ul class="list-unstyled list-inline pull-left">
+                            <li><a href="https://myshm.ru" target="_blank">MySHM.RU</a></li>
+                        </ul>
+                        <button class="pull-right btn btn-link btn-xs hidden-print" back-to-top><i class="ti ti-arrow-up"></i></button>
+                    </div>
+                </footer>
 			</div>
 			<div class="static-content-wrapper">
 				<div class="static-content">
 					<div class="page-content mainview-animation animated" ng-view="">
 					</div> <!--wrap -->
 				</div>
-				<footer role="contentinfo" ng-show="!layoutLoading" ng-cloak>
-					<div class="clearfix">
-				        <ul class="list-unstyled list-inline pull-left">
-				            <li><h6 style="margin: 0;">&copy; 2019 DaNuk (DNk)</h6></li>
-				        </ul>
-				        <button class="pull-right btn btn-link btn-xs hidden-print" back-to-top><i class="ti ti-arrow-up"></i></button>
-				    </div>
-				</footer>
 			</div>
 		</div>
 	</div>
