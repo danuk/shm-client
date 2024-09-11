@@ -1,4 +1,4 @@
-FROM nginx:alpine as client
+FROM nginx:alpine AS client
 
 EXPOSE 80
 
