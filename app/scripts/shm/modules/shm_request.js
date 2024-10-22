@@ -3,7 +3,7 @@ angular
 .service('shm_request', [ '$rootScope', '$http', '$q', function( $rootScope, $http, $q ) {
     return function( $method, $url, $data ) {
       var deferred = $q.defer();
-      var $request_url = '/shm/' + $url;
+      var $request_url = 'shm/' + $url;
       var $args = {
         method: $method,
         url: $request_url,

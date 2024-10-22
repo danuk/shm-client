@@ -167,8 +167,6 @@ angular.module('theme.core.main_controller', ['theme.core.services','ngCookies']
       progressLoader.set(50);
 	  shm_request('POST', 'user/auth.cgi', { login: login, password: password } ).then( function(response) {
         if ( response.data.session_id ) {
-            var $session_id = response.data.session_id;
-            $cookies.put('session_id', $session_id);
             $scope.isLoggedIn = true;
             $location.path('/user_services');
         }
