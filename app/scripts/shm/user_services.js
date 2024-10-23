@@ -28,6 +28,16 @@ angular
     };
 
     var getTemplateUrl = function(category) {
+
+        if (category.startsWith('vpn-mz')) {
+            category = 'marz';
+        } else if (category.startsWith('vpn-marz')) {
+            category = 'marz';
+        } else if (category.match(/marz|mz|marzban/)) {
+            category = 'marz';
+        } else if (category.startsWith('vpn')) {
+            category = 'vpn';
+        }
         var http = new XMLHttpRequest();
         var base_url = 'views/shm/categories/';
         http.open('HEAD', base_url + category + '.html', false);
@@ -35,17 +45,83 @@ angular
         return (http.status !== 404) ? base_url + category + '.html' : base_url + 'default.html';
     };
 
+    var getSubUrl= function(user_service_id) {
+        return shm_request('GET', 'v1/storage/manage/vpn_mrzb_' + user_service_id + '?format=json')
+            .then(function(response) {
+                return response.data.subscription_url;
+            });
+    };
+
+    var getData= function(user_service_id) {
+        return shm_request('GET', 'v1/storage/manage/vpn' + user_service_id)
+            .then(function(resp) {
+                return resp.data;
+            });
+    };
+
     this.editor = function (title, row, size) {
         return $modal.open({
             templateUrl: function (rp) {
                 var category = row.category;
-                category = category.replace(/-.*/,'');
                 return getTemplateUrl(category);
             },
             controller: function ($scope, $modalInstance, $modal) {
                 $scope.title = title;
                 $scope.row = row;
                 $scope.data = angular.copy(row);
+                $scope.copied = false;
+
+                getSubUrl($scope.data.user_service_id).then(function(subscriptionUrl) {
+                    $scope.subscriptionUrl = subscriptionUrl;
+                });
+
+                $scope.CopyUrl = function () {
+                if ($scope.subscriptionUrl) {
+                    navigator.clipboard.writeText($scope.subscriptionUrl)
+                    $scope.copied = true;
+
+                    setTimeout(function() {
+                        $scope.copied = false;
+                    }, 500);
+
+                } else {
+                    alert('Ссылка не найдена');
+                }
+                };
+
+                $scope.copied = false;
+
+                $scope.openQrModal = function () {
+                    $modal.open({
+                        templateUrl: 'views/shm/categories/qr.html',
+                        controller: function ($scope, $modalInstance, userServiceData) {
+                            $scope.title = 'QR-код';
+                            $scope.data = userServiceData;
+
+                            getSubUrl($scope.data.user_service_id).then(function(SubUrl) {
+                                if (SubUrl) {
+                                    var qrElement = document.getElementById("qrcode");
+                                    new QRCode(qrElement, SubUrl);
+                                } else {
+                                    getData($scope.data.user_service_id).then(function(UsData) {
+                                        var qrElement = document.getElementById("qrcode");
+                                        new QRCode(qrElement, UsData);
+                                    });
+                                }
+                            });
+
+                            $scope.closeQrModal = function () {
+                                $modalInstance.close();
+                            };
+                        },
+                        size: 'sm',
+                        resolve: {
+                            userServiceData: function () {
+                                return $scope.data;
+                            }
+                        }
+                    });
+                };
 
                 if (!row.services.config) row.services.config = {};
 
