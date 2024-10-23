@@ -1,6 +1,6 @@
 <form name="userForm" class="form-horizontal row-border">
     <div class="modal-header">
-        <h4 class="modal-title">VPN</h4>
+        <h4 class="modal-title">VPN Marzban</h4>
     </div>
     <div class="modal-body">
         <div class="form-group">
@@ -32,13 +32,14 @@
             </div>
         </div>
         <div class="form-group" ng-if="row.status=='ACTIVE'">
-            <label class="col-sm-2 control-label">Конфиг файл</label>
+            <label class="col-sm-2 control-label">Ссылка</label>
             <div class="col-sm-9">
-                <a class="btn btn-info" target="_blank" href="/shm/v1/storage/manage/vpn{{ data.user_service_id }}?format=other&filename=vpn{{ data.user_service_id }}.conf">Скачать</a>
+                <button class="btn btn-info" ng-click="CopyUrl()" >
+                    <span ng-if="!copied">Скопировать</span>
+                    <span ng-if="copied"><i class="fa fa-check-circle text-success"></i> Скопировано</span>
+                </button>
             </div>
         </div>
-
-
     </div> <!-- modal-body -->
 
     <div class="modal-footer">
