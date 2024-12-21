@@ -52,7 +52,7 @@ angular.module('theme.core.main_controller', ['theme.core.services','ngCookies']
     $scope.user = {};
 	    
     if ( $window.env) {
-      $scope.title = $window.env.NAME || 'SHM Client';
+      $scope.title = $window.env.TITLE || 'SHM Client';
     } else {
       $scope.title = 'SHM Client';
     };
