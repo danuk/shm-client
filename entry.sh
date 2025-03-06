@@ -7,7 +7,7 @@
 if [ ! -z "$SHM_BASE_PATH" ] && [ "$SHM_BASE_PATH" != "/" ]; then
     sed -i "s|location / {|location $SHM_BASE_PATH {|" /etc/nginx/conf.d/default.conf
     sed -i "s|#proxy_cookie_path;|proxy_cookie_path / $SHM_BASE_PATH;|" /etc/nginx/conf.d/default.conf
-    sed -i "s|location /shm {|location $SHM_BASE_PATH/shm/ {|" /etc/nginx/conf.d/default.conf
+    sed -i "s|location /shm {|location $SHM_BASE_PATH/shm {|" /etc/nginx/conf.d/default.conf
 fi
 
 nginx -g "daemon off;"
