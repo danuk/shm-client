@@ -1,15 +1,12 @@
 #!/bin/bash
 
+REPO="danuk"
+
 function build_and_push {
-    TAGS=("danuk/shm-$1:latest")
-
-    VERSION=$(git tag --points-at | head -n1)
-    if [ "$VERSION" ]; then
-        #TAGS+=("danuk/shm-$1:$VERSION")
-
-        VERSION_MINOR=$(echo $VERSION | cut -d '.' -f 1,2)
-        TAGS+=("danuk/shm-$1:$VERSION_MINOR")
-    fi
+    TAGS=()
+    for TAG in ${LABELS[*]}; do
+        TAGS+=("$REPO/shm-$1:$TAG")
+    done
 
     docker build --platform linux/amd64,linux/arm64 \
         $(printf " -t %s" "${TAGS[@]}") \
@@ -20,8 +17,22 @@ function build_and_push {
     done
 }
 
-# Build Client
-[ -z "$VERSION" ]; VERSION=$(git describe --abbrev=0 --tags)
-echo -n "$VERSION" > app/version
-build_and_push client
+# Set tag from git
+GIT_TAG=$(git describe --abbrev=0 --tags)
+LABELS=("$GIT_TAG")
 
+# Add minor tag
+VERSION_MINOR=$(echo $GIT_TAG | cut -d '.' -f 1,2)
+LABELS+=("$VERSION_MINOR")
+
+# Add custom tags
+LABELS+=("$@")
+
+REV=$(git rev-parse --short HEAD)
+echo "Build version: ${GIT_TAG}-${REV}"
+echo "TAGS: ${LABELS[@]}"
+
+read -p "Press enter to continue..."
+echo -n "${GIT_TAG}-${REV}" > app/version
+
+build_and_push client
