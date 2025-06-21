@@ -240,4 +240,7 @@ angular.module('theme.core.main_controller', ['theme.core.services','ngCookies']
       }
       // wijetsService.make();
     });
+    $scope.change_Theme = function() {
+      $theme.change_Theme();
+    };
   }]);
