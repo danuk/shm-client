@@ -10,12 +10,8 @@ if [ ! -z "$SHM_BASE_PATH" ] && [ "$SHM_BASE_PATH" != "/" ]; then
     sed -i "s|location /shm {|location $SHM_BASE_PATH/shm {|" /etc/nginx/conf.d/default.conf
 fi
 
-if [ ! -z "$TITLE" ]; then
-cat <<EOF > /app/scripts/env.js
-window.env = {
-  TITLE: "$TITLE"
-};
-EOF
+if [ ! -z "$SHM_TITLE" ]; then
+    sed -i "s|SHM Client|$SHM_TITLE|" /app/scripts/env.js
 fi
 
 nginx -g "daemon off;"
