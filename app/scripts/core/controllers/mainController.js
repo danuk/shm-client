@@ -10,7 +10,8 @@ angular.module('theme.core.main_controller', ['theme.core.services','ngCookies']
     '$route',
     '$cookies',
     'shm_request',
-    function($rootScope, $scope, $theme, $timeout, progressLoader, wijetsService, $location, $route, $cookies, shm_request ) {
+    '$window',
+    function($rootScope, $scope, $theme, $timeout, progressLoader, wijetsService, $location, $route, $cookies, shm_request, $window ) {
     'use strict';
     $scope.layoutFixedHeader = $theme.get('fixedHeader');
     $scope.layoutPageTransitionStyle = $theme.get('pageTransitionStyle');
@@ -49,7 +50,13 @@ angular.module('theme.core.main_controller', ['theme.core.services','ngCookies']
     ];
 
     $scope.user = {};
-
+	    
+    if ( $window.env) {
+      $scope.title = $window.env.TITLE || 'SHM Client';
+    } else {
+      $scope.title = 'SHM Client';
+    };
+	    
     $scope.layoutLoading = true;
 
     $scope.getLayoutOption = function(key) {
@@ -233,4 +240,7 @@ angular.module('theme.core.main_controller', ['theme.core.services','ngCookies']
       }
       // wijetsService.make();
     });
+    $scope.change_Theme = function() {
+      $theme.change_Theme();
+    };
   }]);

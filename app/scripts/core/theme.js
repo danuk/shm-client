@@ -20,11 +20,12 @@ angular
     sliderClass: 'scroll-thumb',
     contentClass: 'scroll-content'
   })
-  .run(['$window', function ($window) {
+  .run(['$window', '$theme', function ($window, $theme) {
     $window.ngGrid.config = {
         footerRowHeight: 40,
         headerRowHeight: 40,
         rowHeight: 40
     };
+    $theme.initTheme(); 
   }]);
 

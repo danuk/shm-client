@@ -5,7 +5,7 @@
 >
 <head>
   <meta charset="utf-8">
-  <title>SHM Client</title>
+  <title>{{ title }}</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="SHM Client">
@@ -113,7 +113,7 @@
 				</a>
 			</span>
 
-			<a class="navbar-brand" href="#/">SHM</a>
+			<a class="navbar-brand" href="#/">{{ title }}</a>
 
 		</div>
 
@@ -145,7 +145,9 @@
 	        <li class="toolbar-icon-bg hidden-xs" toggle-fullscreen>
 	            <a href="" class="toggle-fullscreen"><span class="icon-bg"><i class="ti ti-fullscreen"></i></span></i></a>
 	        </li>
-
+            <li class="toolbar-icon-bg hidden-xs" ng-click="change_Theme()">
+                <a><span class="icon-bg"><i class="ti ti-wand"></i></span></a>
+            </li>
 			<li class="dropdown" ng-show="!isLoggedIn">
 				<a href="#/extras-login2" style="font-size: 14px"><i class="fa fa-sign-in"></i> Log in</a>
 			</li>
@@ -327,7 +329,8 @@
 
 	<!-- build:js scripts/vendor.js -->
 	<!-- bower:js -->
-	<script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="scripts/env.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
 
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="node_modules/angular-resource/angular-resource.min.js"></script>
