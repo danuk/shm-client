@@ -62,7 +62,7 @@ angular
     this.editor = function (title, row, size) {
         return $modal.open({
             templateUrl: function (rp) {
-                var category = row.category;
+                var category = row.service.category;
                 return getTemplateUrl(category);
             },
             controller: function ($scope, $modalInstance, $modal) {
@@ -123,8 +123,6 @@ angular
                     });
                 };
 
-                if (!row.services.config) row.services.config = {};
-
                 $scope.cancel = function () {
                     $modalInstance.dismiss('cancel');
                 };
@@ -157,9 +155,9 @@ angular
 
     $scope.columnDefs = [
         {
-            field: 'name',
+            field: 'service.name',
             displayName: 'Услуга',
-            cellTemplate: '<div class="ui-grid-cell-contents">[{{row.entity.user_service_id}}] {{row.entity.name}}</div>',
+            cellTemplate: '<div class="ui-grid-cell-contents">[{{row.entity.user_service_id}}] {{row.entity.service.name}}</div>',
             width: "50%",
         },
         {
@@ -187,7 +185,7 @@ angular
             },
         },
         {
-            field: 'withdraws.cost',
+            field: 'service.cost',
             displayName: 'Стоимость',
             width: 100,
         },
