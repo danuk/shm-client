@@ -30,11 +30,15 @@ angular
     var getTemplateUrl = function(category) {
 
         if (category.startsWith('vpn-mz')) {
-            category = 'marz';
+            category = 'proxy';
         } else if (category.startsWith('vpn-marz')) {
-            category = 'marz';
-        } else if (category.match(/marz|mz|marzban/)) {
-            category = 'marz';
+            category = 'proxy';
+        } else if (category.startsWith('vpn-remna')) {
+            category = 'proxy';
+        } else if (category.match(/remna|remnawave/)) {
+            category = 'proxy';
+        }  else if (category.match(/marz|mz|marzban/)) {
+            category = 'proxy';
         } else if (category.startsWith('vpn')) {
             category = 'vpn';
         }
@@ -45,10 +49,18 @@ angular
         return (http.status !== 404) ? base_url + category + '.html' : base_url + 'default.html';
     };
 
-    var getSubUrl= function(user_service_id) {
+    var getSubUrl = function(user_service_id) {
         return shm_request('GET', 'v1/storage/manage/vpn_mrzb_' + user_service_id + '?format=json')
             .then(function(response) {
-                return response.data.subscription_url;
+                let url = response.data.subscription_url || (response.data.response && response.data.response.subscriptionUrl);
+                if (url) {
+                    return url;
+                } else {
+                    return shm_request('GET', 'v1/storage/manage/vpn_remna_' + user_service_id + '?format=json')
+                        .then(function(response) {
+                            return response.data.subscription_url || (response.data.response && response.data.response.subscriptionUrl);
+                        });
+                }
             });
     };
 
